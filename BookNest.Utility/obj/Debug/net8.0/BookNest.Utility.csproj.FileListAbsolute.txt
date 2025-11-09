@@ -10,3 +10,4 @@ C:\Users\Admin\Downloads\Finale\BookNest\BookNest.Utility\obj\Debug\net8.0\BookN
 C:\Users\Admin\Downloads\Finale\BookNest\BookNest.Utility\obj\Debug\net8.0\refint\BookNest.Utility.dll
 C:\Users\Admin\Downloads\Finale\BookNest\BookNest.Utility\obj\Debug\net8.0\BookNest.Utility.pdb
 C:\Users\Admin\Downloads\Finale\BookNest\BookNest.Utility\obj\Debug\net8.0\ref\BookNest.Utility.dll
+C:\Users\Admin\Downloads\Finale\BookNest\BookNest.Utility\obj\Debug\net8.0\BookNest.Utility.sourcelink.json

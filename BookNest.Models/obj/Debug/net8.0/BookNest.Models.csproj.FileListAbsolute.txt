@@ -9,3 +9,4 @@ C:\Users\Admin\Downloads\Finale\BookNest\BookNest.Models\obj\Debug\net8.0\BookNe
 C:\Users\Admin\Downloads\Finale\BookNest\BookNest.Models\obj\Debug\net8.0\refint\BookNest.Models.dll
 C:\Users\Admin\Downloads\Finale\BookNest\BookNest.Models\obj\Debug\net8.0\BookNest.Models.pdb
 C:\Users\Admin\Downloads\Finale\BookNest\BookNest.Models\obj\Debug\net8.0\ref\BookNest.Models.dll
+C:\Users\Admin\Downloads\Finale\BookNest\BookNest.Models\obj\Debug\net8.0\BookNest.Models.sourcelink.json

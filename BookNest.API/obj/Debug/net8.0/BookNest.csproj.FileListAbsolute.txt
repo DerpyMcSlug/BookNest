@@ -580,3 +580,7 @@ C:\Users\Admin\Downloads\Finale\BookNest\BookNest.API\obj\Debug\net8.0\staticweb
 C:\Users\Admin\Downloads\Finale\BookNest\BookNest.API\obj\Debug\net8.0\BookNest.csproj.Up2Date
 C:\Users\Admin\Downloads\Finale\BookNest\BookNest.API\obj\Debug\net8.0\BookNest.genruntimeconfig.cache
 C:\Users\Admin\Downloads\Finale\BookNest\BookNest.API\obj\Debug\net8.0\ref\BookNest.dll
+C:\Users\Admin\Downloads\Finale\BookNest\BookNest.API\obj\Debug\net8.0\BookNest.sourcelink.json
+C:\Users\Admin\Downloads\Finale\BookNest\BookNest.API\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Admin\Downloads\Finale\BookNest\BookNest.API\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Admin\Downloads\Finale\BookNest\BookNest.API\bin\Debug\net8.0\System.ClientModel.dll

@@ -2,6 +2,9 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
 
+using System.ComponentModel.DataAnnotations;
+using System.Text;
+using System.Text.Encodings.Web;
 using BookNest.DataAccess.Repository.IRepository;
 using BookNest.Models;
 using BookNest.Utility;
@@ -13,9 +16,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.WebUtilities;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
-using System.Text.Encodings.Web;
+using Microsoft.CodeAnalysis.Options;
 
 namespace BookNest.Areas.Identity.Pages.Account
 {
@@ -181,8 +182,16 @@ namespace BookNest.Areas.Identity.Pages.Account
 
                     if (!string.IsNullOrEmpty(Input.Role))
                     {
-                        await _userManager.AddToRoleAsync(user, Input.Role);
-                    }
+						//await _userManager.AddToRoleAsync(user, Input.Role);
+						/*
+                        <div class="form-floating mb-3 col-md-6">
+                            <select asp-for="Input.Role" asp-items="@Model.Input.RoleList" class="form-select" onchange="Select()">
+                                <option disabled selected>--Select Role--</option>
+                            </select>
+                        </div>
+                        */
+						await _userManager.AddToRoleAsync(user, "Customer");
+					}
                     else
                     {
                         await _userManager.AddToRoleAsync(user, StaticDetails.ROLE_CUSTOMER);

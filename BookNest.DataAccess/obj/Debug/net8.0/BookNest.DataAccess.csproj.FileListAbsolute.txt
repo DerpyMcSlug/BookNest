@@ -23,3 +23,4 @@ C:\Users\Admin\Downloads\Finale\BookNest\BookNest.DataAccess\obj\Debug\net8.0\Bo
 C:\Users\Admin\Downloads\Finale\BookNest\BookNest.DataAccess\obj\Debug\net8.0\BookNest.DataAccess.pdb
 C:\Users\Admin\Downloads\Finale\BookNest\BookNest.DataAccess\obj\Debug\net8.0\BookNest.DataAccess.genruntimeconfig.cache
 C:\Users\Admin\Downloads\Finale\BookNest\BookNest.DataAccess\obj\Debug\net8.0\ref\BookNest.DataAccess.dll
+C:\Users\Admin\Downloads\Finale\BookNest\BookNest.DataAccess\obj\Debug\net8.0\BookNest.DataAccess.sourcelink.json

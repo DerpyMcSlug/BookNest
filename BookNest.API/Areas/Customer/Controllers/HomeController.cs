@@ -21,13 +21,23 @@ namespace BookNest.Areas.Customer.Controllers
             _shoppingCartRepo = shoppingCartRepo;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string? search)
         {
             IEnumerable<Product> productList = _productRepo.GetAll(includeProperties: "Category").ToList();
-            return View(productList);
+			
+            // Filter by search term if provided
+			if (!string.IsNullOrEmpty(search))
+			{
+				productList = productList.Where(p =>
+					p.Title.Contains(search, StringComparison.OrdinalIgnoreCase) ||
+					p.Category.Name.Contains(search, StringComparison.OrdinalIgnoreCase)
+				).ToList();
+			}
+
+			return View(productList);
         }
 
-        public IActionResult Details(Guid productId)
+		public IActionResult Details(Guid productId)
         {
             ShoppingCart shoppingCart = new ShoppingCart() 
             { 

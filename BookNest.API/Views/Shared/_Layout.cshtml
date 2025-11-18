@@ -66,12 +66,26 @@
 
                         <!-- Search Bar -->
                         <div class="d-flex align-items-center mx-auto search-bar-wrapper">
-                            <form class="d-flex align-items-center" role="search" onsubmit="return false;">
-                                <input class="form-control" type="search" placeholder="Search books..." aria-label="Search">
-                            </form>
-                            <button class="btn btn-outline-light ms-2" type="button" disabled>
-                                <i class="bi bi-search"></i>
-                            </button>
+                            @{
+                                var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+                                var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+                            }
+
+                            @if ((currentController == "Home" && currentAction == "Index") ||
+                                                        (currentController == "Product" && currentAction == "Details"))
+                            {
+                                <div class="d-flex align-items-center ms-auto">
+                                    <form id="searchForm" class="d-flex" role="search" method="get" asp-controller="Home" asp-action="Index">
+                                        <input class="form-control me-2" 
+                                               type="search" 
+                                               name="search" placeholder="Search books..." 
+                                               aria-label="Search">
+                                    </form>
+                                    <button class="btn btn-outline-light" type="submit" form="searchForm">
+                                        <i class="bi bi-search"></i>
+                                    </button>
+                                </div>
+                            }
                         </div>
                     </ul>
 
@@ -88,7 +102,7 @@
         </main>
     </div>
 
-    <footer class="bg-primary text-light pt-5 pb-4 mt-5">
+    <footer class=" text-light pt-5 pb-4 mt-5">
         <div class="container text-center text-md-start">
             <div class="row text-center text-md-start">
 

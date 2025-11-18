@@ -1,15 +1,12 @@
-﻿html {
-    font-size: 14px;
-}
-
-html, body {
+﻿html, body {
     height: 100%;
     display: flex;
     flex-direction: column;
-}
-
-main {
-    flex: 1;
+    font-size: 14px;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background-color: #fffaf0; /* soft cream background */
+    color: #3b2f2f;
+    margin-bottom: 60px;
 }
 
 @media (min-width: 768px) {
@@ -18,35 +15,11 @@ main {
     }
 }
 
-/* ===== BOOKNEST THEME COLORS ===== */
+/* ===== THEME COLORS ===== */
 :root {
     --bs-primary: #b8860b;
-    --bs-primary-rgb: 184, 134, 11;
     --bs-primary-hover: #a37a00;
     --bs-primary-light: #d4a017;
-    --bs-primary-dark: #8b6914;
-}
-
-/* ===== FOCUS STATES ===== */
-.btn:focus,
-.btn:active:focus,
-.btn-link.nav-link:focus,
-.form-control:focus,
-.form-check-input:focus {
-    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem var(--bs-primary);
-}
-
-/* ===== LAYOUT ===== */
-html {
-    position: relative;
-    min-height: 100%;
-}
-
-body {
-    margin-bottom: 60px;
-    background-color: #fffaf0; 
-    color: #3b2f2f; 
-    font-family: 'Segoe UI', Roboto, sans-serif;
 }
 
 /* ===== BUTTONS ===== */
@@ -60,29 +33,18 @@ body {
         background-color: #c57b2a !important;
         border-color: #c57b2a !important;
         transform: translateY(-2px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     }
 
-.bg-primary {
-    background-color: #9c661f !important;
-    border-color: #9c661f !important;
-}
-
-.text-primary {
-    color: var(--bs-primary) !important;
-}
-
-/* ===== NAVBAR FIX ===== */
+/* ===== NAVBAR ===== */
 .navbar {
     background: linear-gradient(to right, #b8860b, #8b6914);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     padding: 0.75rem 2rem;
     min-height: 70px;
-    display: flex;
     align-items: center;
 }
 
-/* Brand */
 .navbar-brand {
     color: #fffaf0 !important;
     font-weight: 700;
@@ -92,21 +54,16 @@ body {
     gap: 0.5rem;
 }
 
-    .navbar-brand:hover {
+    .navbar-brand:hover,
+    .navbar-nav .nav-link:hover {
         color: var(--bs-primary-light) !important;
     }
 
-/* Nav links */
 .navbar-nav .nav-link {
     color: #fffaf0 !important;
     font-weight: 500;
     padding: 0.25rem 0.75rem;
-    line-height: 1.6;
 }
-
-    .navbar-nav .nav-link:hover {
-        color: var(--bs-primary-light) !important;
-    }
 
 /* Search bar */
 .navbar form {
@@ -122,17 +79,15 @@ body {
     margin-left: 1.25rem;
     background-color: #fffaf0;
     color: #3b2f2f;
-    transition: box-shadow 0.25s ease;
     width: clamp(160px, 20vw, 380px);
     height: 2.25rem;
+    transition: box-shadow 0.25s ease;
 }
 
     .navbar .form-control:focus {
-        box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
-        outline: none;
+        box-shadow: 0 0 8px rgba(255,255,255,0.4);
     }
 
-/* Search button */
 .navbar .btn-outline-light {
     border-radius: 50%;
     border-color: #fffaf0;
@@ -142,7 +97,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
 }
 
     .navbar .btn-outline-light:hover {
@@ -152,14 +106,9 @@ body {
 
 /* ===== FOOTER ===== */
 footer {
-    background-color: var(--bs-primary-dark);
-    color: #fffaf0;
+    background-color: #2C57A3;
     font-size: 0.95rem;
     padding: 2rem 0;
-    margin-top: auto;
-    width: 100%;
-    position: relative;
-    bottom: 0;
     text-align: center;
 }
 
@@ -174,126 +123,48 @@ footer {
             text-decoration: underline;
         }
 
-/* ===== DIVIDER ===== */
-.divider-text:before,
-.divider-text:after {
-    color: white;
-    content: "";
-    flex: 1;
-    border-bottom: 1px solid #555;
-    margin: auto 0.25rem;
-    box-shadow: 0 -2px;
-}
-
-/* ===== HERO / BANNER ===== */
-.hero {
-    background: linear-gradient(to right, #b8860b, #8b6914);
-    color: #fffaf0;
-    text-align: center;
-    padding: 4rem 2rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-}
-
-    .hero h1 {
-        font-weight: 700;
-    }
-
-    .hero p {
-        color: #f9e9b6;
-    }
-
-/* === Card Hover Animation === */
+/* ===== PRODUCT CARDS ===== */
 .product-card {
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    position: relative;
+    margin: 0.75rem;
+    max-width: 90%;
+    border-radius: 10px;
     overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15); /* Always visible shadow */
 }
 
-    /* Expand only product cards when hovered */
-    .product-card:hover {
-        transform: scale(1.05);
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-        z-index: 2;
+    .product-card .card-img-top {
+        object-fit: cover;
+        height: 200px;
     }
 
-/* Prevent vertical “jump” when expanding */
-.row .product-card:hover {
-    margin-top: 0;
-    margin-bottom: 0;
+.genre-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: var(--bs-primary);
+    color: #fffaf0;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
 }
 
-/* Product images: clean and consistent */
-.product-card .card-img-top {
-    object-fit: cover;
-    height: 250px;
-    transition: transform 0.25s ease;
-    transform-origin: center center;
-}
-
-/* Keep image visually stable when card expands */
-.product-card:hover .card-img-top {
-    transform: scale(calc(1 / 1.05));
-}
-
-/* === Regular Cards (e.g. Details Page) === */
-.card {
-    transition: none !important;
-    box-shadow: none !important;
-    transform: none !important;
-}
-
-    .card:hover {
-        transition: none !important;
-        box-shadow: none !important;
-        transform: none !important;
-    }
-
-/* ===== AUTH FORM SUBMIT BUTTON ===== */
-form button[type="submit"],
-form input[type="submit"] {
-    width: 85%; /* slightly shorter than full width */
-    display: block;
-    margin: 1rem auto 0 auto; /* center horizontally */
-}
-
-
-/* ===== Fix Input Padding for Login & Register ===== */
+/* ===== AUTH FORMS ===== */
 .form-floating > .form-control {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
+    padding: 1.25rem 1rem 0.75rem 1rem !important;
     height: 3rem !important;
-    box-sizing: border-box;
 }
 
-/* Adjust label positioning inside floating fields */
 .form-floating > label {
     padding-left: 1rem !important;
 }
 
-/* Optional: better button proportions */
-form button[type="submit"],
-form input[type="submit"] {
+form button[type="submit"] {
     width: 60% !important;
-    margin: 1rem auto 0 auto;
+    margin: 1rem auto 0;
     display: block;
-    padding: 0.5rem 0.75rem !important;
-}
-
-form .btn-primary {
-    width: 60% !important; /* reduce width */
-    height: 80% !important; /* reduce height */
-    display: block;
-    margin: 1rem auto 0 auto; /* center the button */
-    padding: 0.6rem 0 !important; /* slight vertical padding */
-}
-
-form#account .form-floating > .form-control {
-    padding-left: 1rem !important; /* adds space before text */
-    padding-right: 1rem !important;
-    padding-top: 1.25rem !important; /* ensures label doesn’t overlap text */
-    padding-bottom: 0.75rem !important;
-}
-
-form#account .form-floating > label {
-    left: 1.25rem !important; /* aligns label with padded text */
+    padding: 0.6rem 0 !important;
 }

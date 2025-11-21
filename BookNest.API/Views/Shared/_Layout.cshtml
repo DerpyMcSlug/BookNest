@@ -17,7 +17,7 @@
             <div class="container-fluid">
 
                 <!-- Brand -->
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BookNest</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" style="margin-right: 50px;">BookNest</a>
                 
                 <!-- Toggler for mobile -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -33,7 +33,7 @@
                             <a class="nav-link" asp-area="Customer" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="Customer" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link" asp-area="Customer" asp-controller="Home" asp-action="Privacy">About</a>
                         </li>
 
 
@@ -76,9 +76,9 @@
                             {
                                 <div class="d-flex align-items-center ms-auto">
                                     <form id="searchForm" class="d-flex" role="search" method="get" asp-controller="Home" asp-action="Index">
-                                        <input class="form-control me-2" 
-                                               type="search" 
-                                               name="search" placeholder="Search books..." 
+                                        <input class="form-control me-2"
+                                               type="search"
+                                               name="search" placeholder="Search books..."
                                                aria-label="Search">
                                     </form>
                                     <button class="btn btn-outline-light" type="submit" form="searchForm">
@@ -95,6 +95,7 @@
             </div>
         </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             <partial name="_Notification" />

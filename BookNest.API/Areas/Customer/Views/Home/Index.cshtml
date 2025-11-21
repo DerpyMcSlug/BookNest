@@ -1,5 +1,17 @@
 ﻿@model IEnumerable<Product>
 
+<div class="hero-section mb-4" style="background-image: url('/images/banner-books.jpg');">
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <h1 class="hero-title">Discover Your Next Favorite Book</h1>
+            <p class="hero-subtitle">Dive into a world of stories, knowledge, and imagination.</p>
+            <a asp-area="Customer" asp-controller="Home" asp-action="Index" class="btn btn-primary btn-lg">
+                Browse Books
+            </a>
+        </div>
+    </div>
+</div>
+
 <div class="row pb-3">
     @foreach (var product in Model)
     {

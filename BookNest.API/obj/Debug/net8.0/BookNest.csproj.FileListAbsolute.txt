@@ -569,9 +569,7 @@ C:\Users\Admin\Downloads\Finale\BookNest\BookNest.API\bin\Debug\net8.0\BookNest.
 C:\Users\Admin\Downloads\Finale\BookNest\BookNest.API\obj\Debug\net8.0\rjimswa.dswa.cache.json
 C:\Users\Admin\Downloads\Finale\BookNest\BookNest.API\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
 C:\Users\Admin\Downloads\Finale\BookNest\BookNest.API\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
-C:\Users\Admin\Downloads\Finale\BookNest\BookNest.API\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\Admin\Downloads\Finale\BookNest\BookNest.API\obj\Debug\net8.0\scopedcss\bundle\BookNest.styles.css
-C:\Users\Admin\Downloads\Finale\BookNest\BookNest.API\obj\Debug\net8.0\scopedcss\projectbundle\BookNest.bundle.scp.css
 C:\Users\Admin\Downloads\Finale\BookNest\BookNest.API\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\Admin\Downloads\Finale\BookNest\BookNest.API\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\Admin\Downloads\Finale\BookNest\BookNest.API\obj\Debug\net8.0\staticwebassets.development.json
@@ -584,3 +582,5 @@ C:\Users\Admin\Downloads\Finale\BookNest\BookNest.API\obj\Debug\net8.0\BookNest.
 C:\Users\Admin\Downloads\Finale\BookNest\BookNest.API\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\Admin\Downloads\Finale\BookNest\BookNest.API\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\Admin\Downloads\Finale\BookNest\BookNest.API\bin\Debug\net8.0\System.ClientModel.dll
+C:\Users\Admin\Downloads\Finale\BookNest\BookNest.API\bin\Debug\net8.0\SendGrid.dll
+C:\Users\Admin\Downloads\Finale\BookNest\BookNest.API\bin\Debug\net8.0\StarkbankEcdsa.dll

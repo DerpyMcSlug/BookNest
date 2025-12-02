@@ -1,7 +1,7 @@
 ﻿@page
 @model RegisterModel
 
-<div class="card shadow border-0 mt-4">
+<div class="auth-dark register-card card shadow border-0 mt-4">
     <div class="card-header bg-primary bg-gradient mt-0 py-4">
         <div class="row">
             <div class="col-12 text-center">
@@ -14,7 +14,8 @@
             <div class="col-md-12">
                 <section>
                     <form id="registerForm" class="row" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-                        <h4 class="border-bottom pb-3 mb-4 text-center">Create a new account.</h4>
+                        @Html.AntiForgeryToken()
+                        <h4 class="border-bottom pb-3 mb-4 text-center">Create a new account</h4>
                         <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
                         <div class="form-floating mb-3 col-md-12">
                             <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
@@ -22,9 +23,27 @@
                             <span asp-validation-for="Input.Email" class="text-danger"></span>
                         </div>
                         <div class="form-floating mb-3 col-md-6">
-                            <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                            <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" id="passwordInput" />
                             <label asp-for="Input.Password" class="ms-2 text-muted">Password</label>
                             <span asp-validation-for="Input.Password" class="text-danger"></span>
+
+                            <!-- Password requirements go under the password field -->
+                            <div class="password-requirements text-sm text-muted mt-2">
+                                <ul class="m-0" style="list-style: none; padding-left: 15px;">
+                                    <li id="req-length" class="req-item">
+                                        <span class="req-icon">○</span> Minimum 8 characters
+                                    </li>
+                                    <li id="req-lower" class="req-item">
+                                        <span class="req-icon">○</span> At least 1 lowercase letter
+                                    </li>
+                                    <li id="req-upper" class="req-item">
+                                        <span class="req-icon">○</span> At least 1 uppercase letter
+                                    </li>
+                                    <li id="req-number" class="req-item">
+                                        <span class="req-icon">○</span> At least 1 number
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="form-floating mb-3 col-md-6">
                             <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
@@ -57,7 +76,7 @@
                             <span asp-validation-for="Input.PostalCode" class="text-danger"></span>
                         </div>
                         <div class="form-floating mb-3 col-md-6">
-                            <input asp-for="Input.PhoneNumber" class="form-control" aria-required="true" placeholder="" />
+                            <input asp-for="Input.PhoneNumber" class="form-control" aria-required="true" placeholder="" pattern="^\+?[0-9\s\-()]{7,20}$" />
                             <label asp-for="Input.PhoneNumber" class="ms-2 text-muted">Phone Number</label>
                             <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
                         </div>
@@ -120,23 +139,59 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+
     <script>
+        // -----------------------------
+        // Handle showing/hiding Company dropdown
+        // -----------------------------
         $(document).ready(function () {
             document.getElementById("Input_CompanyId").style.display = 'none';
         });
+
         function Select() {
-            var select = document.getElementById("Input_Role");
-            //get the option's text
-            var index = select.selectedIndex;
-            var text = select.options[index].text;
-            //if option's text is not United States, hide the second dropdownlist.
-            if (text != "Company") {
-                //hiden the dropdownlist
-                document.getElementById("Input_CompanyId").style.display = 'none';
-            } else {
-                //show the dropdownlist
-                document.getElementById("Input_CompanyId").style.display = 'block';
-            }
-        };
+            const select = document.getElementById("Input_Role");
+            const text = select.options[select.selectedIndex].text;
+
+            document.getElementById("Input_CompanyId").style.display =
+                text === "Company" ? "block" : "none";
+        }
+
+
+        // -----------------------------
+        // Password requirement validation
+        // -----------------------------
+        const passwordInput = document.getElementById("passwordInput");
+
+        function toggleValidity(id, condition) {
+            const el = document.getElementById(id);
+            if (!el) return;  // FIXED TYPO (no random "n")
+
+            condition
+                ? el.classList.add("valid")
+                : el.classList.remove("valid");
+        }
+
+        passwordInput.addEventListener("input", function () {
+            const value = passwordInput.value;
+
+            toggleValidity("req-length", value.length >= 8);
+            toggleValidity("req-lower", /[a-z]/.test(value));
+            toggleValidity("req-upper", /[A-Z]/.test(value));
+            toggleValidity("req-number", /\d/.test(value));
+            // toggleValidity("req-special", /[^A-Za-z0-9]/.test(value));
+        });
+
+
+        // -----------------------------
+        // Show/hide password toggle
+        // -----------------------------
+        function togglePassword() {
+            passwordInput.type =
+                passwordInput.type === "password" ? "text" : "password";
+        }
     </script>
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/auth.css" />
 }

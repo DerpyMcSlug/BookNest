@@ -1,0 +1,38 @@
+﻿/* =========================================================
+GLOBAL BASE STYLES
+========================================================= */
+html, body {
+    align-items: stretch;
+    background-color: #fffaf0; /* soft cream */
+    color: #3b2f2f;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    height: 100%;
+    margin-bottom: 60px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+/* =========================================================
+THEME VARIABLES
+========================================================= */
+:root {
+    --bs-primary: #b8860b;
+    --bs-primary-hover: #a37a00;
+    --bs-primary-light: #d4a017;
+}
+
+/* =========================================================
+GENERAL UTILITY
+========================================================= */
+.shaded-header {
+    backdrop-filter: blur(4px);
+    border-radius: 12px;
+    padding: 20px;
+}

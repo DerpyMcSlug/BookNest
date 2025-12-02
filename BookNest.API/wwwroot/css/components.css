@@ -1,0 +1,236 @@
+﻿/* =========================================================
+BUTTONS
+========================================================= */
+.btn-primary {
+    background-color: #9c661f !important;
+    border-color: #9c661f !important;
+    transition: all 0.25s ease-in-out;
+}
+
+    .btn-primary:hover {
+        background-color: #c57b2a !important;
+        border-color: #c57b2a !important;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        transform: translateY(-2px);
+    }
+
+/* =========================================================
+FORMS (GLOBAL + AUTH)
+========================================================= */
+form button[type="submit"] {
+    display: block;
+    margin: 1rem auto 0;
+    padding: 0.6rem 0 !important;
+    width: 60% !important;
+}
+
+.form-floating > .form-control {
+    height: 3rem !important;
+    padding: 1.25rem 1rem 0.75rem 1rem !important;
+}
+
+.form-floating > label {
+    padding-left: 1rem !important;
+}
+
+/* =========================================================
+HERO BANNER
+========================================================= */
+.hero-banner {
+    background-position: center;
+    background-size: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+    .hero-banner .btn-lg {
+        border-radius: 30px;
+        font-weight: 600;
+        padding: 0.75rem 2rem;
+    }
+
+.hero-content h1 {
+    color: #fffaf0;
+    font-size: 2.6rem;
+    font-weight: 700;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+.hero-content p {
+    color: #f5e8c7;
+    font-size: 1.15rem;
+    margin-top: 0.5rem;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.35);
+}
+
+.hero-overlay {
+    align-items: center;
+    background: rgba(10, 32, 80, 0.55);
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    padding: 2rem;
+    width: 100%;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    opacity: 0.9;
+}
+
+.hero-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+/* =========================================================
+UTILITY CLASSES (reusable styles extracted from duplicates)
+========================================================= */
+
+/* Shadows */
+.shadow-soft {
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+.shadow-medium {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.17);
+}
+
+.shadow-light {
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* Rounded corners */
+.rounded-10 {
+    border-radius: 10px;
+}
+
+.rounded-12 {
+    border-radius: 12px;
+}
+
+.rounded-14 {
+    border-radius: 14px;
+}
+
+.rounded-20 {
+    border-radius: 20px;
+}
+
+/* White box layout */
+.box-white {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.14);
+}
+
+/* Absolute tag positioning */
+.tag-position {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 0.25rem 0.5rem;
+}
+
+/* Flex row strip */
+.flex-strip {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    scroll-behavior: smooth;
+}
+
+/* Typography */
+.text-soft {
+    opacity: 0.85;
+}
+
+/* =========================================================
+GENRE SECTIONS
+========================================================= */
+.genre-section {
+    margin-bottom: 10px;
+    padding: 10px 5px;
+    background: #faf8f3;
+    border-radius: 14px;
+    border: 1px solid #e0d7c6;
+}
+
+.genre-title {
+    font-size: 26px;
+    margin-bottom: 18px;
+    margin-top: 20px;
+    font-weight: 700;
+    color: #3a2d2d;
+    border-left: 6px solid #d4a373;
+    padding-left: 12px;
+}
+
+.category-box {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    margin-bottom: 35px;
+}
+
+/* Horizontal strip */
+.book-scroll-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 1.2rem;
+    padding-bottom: 1rem;
+    scroll-behavior: smooth;
+}
+
+    /* Prevent hyper-stretch items */
+    .book-scroll-container .product-card {
+        flex: 0 0 260px; /* fixed width */
+        min-width: 260px;
+    }
+
+    /* Scrollbar styling */
+    .book-scroll-container::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .book-scroll-container::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 4px;
+    }
+
+    .book-scroll-container::-webkit-scrollbar-track {
+        background: #f4f4f4;
+    }
+
+    /* Make scrollbar look like default but horizontal */
+    .book-scroll-container::-webkit-scrollbar {
+        height: 14px; /* same thickness as normal vertical scrollbars */
+    }
+
+    .book-scroll-container::-webkit-scrollbar-track {
+        background: #eaeaea; /* light grey like native scrollbars */
+        border-radius: 0;
+    }
+
+    .book-scroll-container::-webkit-scrollbar-thumb {
+        background: #c1c1c1; /* matches Windows Chrome default */
+        border-radius: 8px;
+        border: 3px solid #eaeaea; /* makes the “thumb” smaller inside the track */
+    }
+
+        .book-scroll-container::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8; /* darker on hover, like native scrollbars */
+        }
+
+/* Firefox support */
+.book-scroll-container {
+    scrollbar-width: auto; /* normal-width scrollbar */
+    scrollbar-color: #c1c1c1 #eaeaea;
+}

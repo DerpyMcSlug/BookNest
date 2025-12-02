@@ -1,3 +1,8 @@
+wwwroot\css\auth.css
+wwwroot\css\base.css
+wwwroot\css\components.css
+wwwroot\css\layout.css
+wwwroot\css\pages.css
 wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\images\banner-books.jpg
@@ -13,6 +18,7 @@ wwwroot\images\product\LeviathanWakes.jpg
 wwwroot\images\product\NemesisGames.jpg
 wwwroot\images\product\PersepolisRising.jpg
 wwwroot\images\product\TiamatsWrath.jpg
+wwwroot\js\category.js
 wwwroot\js\company.js
 wwwroot\js\product.js
 wwwroot\js\site.js

@@ -16,13 +16,13 @@ namespace BookNest.Areas.Admin.Controllers
             _categoryRepo = categoryRepo;
         }
 
-        public IActionResult Index()
-        {
-            List<Category> objCategoryList = _categoryRepo.GetAll().ToList();
-            return View(objCategoryList);
-        }
+		public IActionResult Index()
+		{
+			List<Category> categories = _categoryRepo.GetAll().ToList();
+			return View(categories);
+		}
 
-        public IActionResult Create()
+		public IActionResult Create()
         {
             return View();
         }
@@ -76,23 +76,22 @@ namespace BookNest.Areas.Admin.Controllers
             return View();
         }
 
-        public IActionResult Delete(Guid? id)
-        {
-            if (id == Guid.Empty)
-            {
-                return NotFound();
-            }
+		[HttpDelete]
+		public IActionResult Delete(Guid id)
+		{
+			var category = _categoryRepo.Get(c => c.Id == id);
+			if (category == null)
+			{
+				return Json(new { success = false, message = "Category not found." });
+			}
 
-            Category? category = _categoryRepo.Get(c => c.Id == id);
-            if (category == null)
-            {
-                return NotFound();
-            }
+			_categoryRepo.Remove(category);
+			_categoryRepo.Save();
 
-            return View(category);
-        }
+			return Json(new { success = true, message = "Category deleted successfully." });
+		}
 
-        [HttpPost, ActionName("Delete")]
+		[HttpPost, ActionName("Delete")]
         public IActionResult DeletePost(Guid? id)
         {
             Category? category = _categoryRepo.Get(c => c.Id == id);
@@ -107,5 +106,12 @@ namespace BookNest.Areas.Admin.Controllers
 
             return RedirectToAction(nameof(Index));
         }
-    }
+
+		[HttpGet]
+		public IActionResult GetAll()
+		{
+			var categoryList = _categoryRepo.GetAll().ToList();
+			return Json(new { data = categoryList });
+		}
+	}
 }

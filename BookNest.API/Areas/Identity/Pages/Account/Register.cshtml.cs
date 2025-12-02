@@ -81,23 +81,17 @@ namespace BookNest.Areas.Identity.Pages.Account
             /// </summary>
             [Required]
             [EmailAddress]
-            [Display(Name = "Email")]
+			[RegularExpression(@"^[a-zA-Z0-9._%+-]+@gmail\.com$",
+	        ErrorMessage = "Email must be a valid Gmail address (example@gmail.com).")]
+			[Display(Name = "Email")]
             public string Email { get; set; }
 
-            /// <summary>
-            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-            ///     directly from your code. This API may change or be removed in future releases.
-            /// </summary>
             [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
             public string Password { get; set; }
 
-            /// <summary>
-            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-            ///     directly from your code. This API may change or be removed in future releases.
-            /// </summary>
             [DataType(DataType.Password)]
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
@@ -107,21 +101,42 @@ namespace BookNest.Areas.Identity.Pages.Account
             [ValidateNever]
             public IEnumerable<SelectListItem> RoleList { get; set; }
 
+			[Required(ErrorMessage = "Name is required.")]
+			[RegularExpression(@"^[A-Za-z\s]+$",
+	            ErrorMessage = "Name can only contain letters and spaces.")]
+			public string Name { get; set; }
+
+			[Required]
+			[RegularExpression(@"^[A-Za-z0-9\s,.-]+$",
+	            ErrorMessage = "Address contains invalid characters.")]
+			[Display(Name = "Street Address")]
+			public string StreetAddress { get; set; }
+
+			[Required]
+			[RegularExpression(@"^[A-Za-z\s]+$",
+	            ErrorMessage = "City name can only contain letters and spaces.")]
+			public string City { get; set; }
+
+			
+			[RegularExpression(@"^[A-Za-z\s]+$",
+				ErrorMessage = "State/Province can only contain letters and spaces.")]
+			public string State { get; set; }
+
+			[RegularExpression(@"^\d{5}$",
+	            ErrorMessage = "Postal code must be exactly 5 digits.")]
+			public string PostalCode { get; set; }
+
+			[Phone]
             [Required]
-            public string? Name { get; set; }
-            [Display(Name = "Street Address")]
-            public string? StreetAddress { get; set; }
-            public string? City { get; set; }
-            public string? State { get; set; }
-            public string? PostalCode { get; set; }
-            [Phone]
-            [Display(Name = "Phone number")]
-            public string? PhoneNumber { get; set; }
-            [Display(Name = "Company")]
+			[RegularExpression(@"^\+?[0-9\s\-()]{7,20}$",
+	            ErrorMessage = "Phone number is invalid.")]
+			public string PhoneNumber { get; set; }
+
+			[Display(Name = "Company")]
             public Guid? CompanyId { get; set; }
             [ValidateNever]
             public IEnumerable<SelectListItem> CompanyList { get; set; }
-        }
+		}
 
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -152,7 +167,8 @@ namespace BookNest.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
-        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+		[ValidateAntiForgeryToken]
+		public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl ??= Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();

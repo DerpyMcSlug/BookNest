@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Product>
+﻿@model Dictionary<string, List<Product>>
 
 <div class="hero-section mb-4" style="background-image: url('/images/banner-books.jpg');">
     <div class="hero-overlay">
@@ -12,33 +12,59 @@
     </div>
 </div>
 
-<div class="row pb-3">
-    @foreach (var product in Model)
+@if (Model.Count == 0)
+{
+    <div class="alert alert-warning text-center mt-4">
+        No books found matching your search.
+    </div>
+}
+else
+{
+    foreach (var category in Model)
     {
-        <div class="col-lg-3 col-sm-6">
-            <div class="row p-2">
-                <div class="col-12 p-1">
-                    <div class="card product-card border-0 p-3 shadow border-top border-5 rounded">
-                        <img src="@product.ImageUrl" class="card img-top rounded"/>
+        <div class="category-box">
+            <h2 class="mb-3 mt-2 text-primary fw-bold">@category.Key</h2>
+
+            <div class="book-scroll-container">
+                @foreach (var product in category.Value)
+                {
+                    <div class="card product-card border-0 p-3 shadow border-top border-5 rounded" style="min-width: 260px;">
+                        <img src="@product.ImageUrl" class="card img-top rounded" />
                         <div class="card-body pb-0">
-                            <div class="genre-tag">@product.Category?.Name</div>
-                            <div class="pl-1">
-                                <p class="card-title h5 text-dark opacity-75 text-uppercase text-center">@product.Title</p>
-                                <p class="card-title text-warning text-center">by <b>@product.Author</b></p>
-                            </div>
-                            <div class="pl-1">
-                                <p class="text-dark text-opacity-75 text-center mb-0">List price: <span class="text-decoration-line-through"> @product.ListPrice.ToString("c0")</span></p>
-                            </div>
-                            <div class="pl-1">
-                                <p class="text-dark text-opacity-75 text-center">As low as: <span> @product.Price100.ToString("c0")</span></p>
-                            </div>
+
+                            <p class="card-title h5 text-dark opacity-75 text-uppercase text-center">@product.Title</p>
+                            <p class="card-title text-warning text-center">by <b>@product.Author</b></p>
+
+                            <p class="text-dark text-opacity-75 text-center mb-0">
+                                List price: <span class="text-decoration-line-through">@product.ListPrice.ToString("c0")</span>
+                            </p>
+
+                            <p class="text-dark text-opacity-75 text-center">
+                                As low as: <span>@product.Price100.ToString("c0")</span>
+                            </p>
                         </div>
-                        <div> 
-                            <a asp-action="Details" asp-route-productId="@product.Id" class="btn btn-primary bg-gradient border-0 form-control">Details</a>
-                        </div>
+
+                        <a asp-action="Details" asp-route-productId="@product.Id"
+                           class="btn btn-primary bg-gradient border-0 form-control">Details</a>
                     </div>
-                </div>
+                }
             </div>
         </div>
     }
-</div>
+}
+
+<script>
+    document.querySelectorAll('.book-scroll-container').forEach(container => {
+        container.addEventListener('wheel', function (e) {
+
+            // Allow SHIFT + scroll to remain vertical for accessibility
+            if (e.shiftKey) return;
+
+            // Prevent page from scrolling
+            e.preventDefault();
+
+            // Scroll horizontally instead of vertically
+            this.scrollLeft += e.deltaY;
+        });
+    });
+</script>

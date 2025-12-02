@@ -1,0 +1,119 @@
+﻿/* =========================================================
+FOOTER
+========================================================= */
+footer {
+    background-color: #2C57A3;
+    font-size: 0.95rem;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+    footer a {
+        color: #fffaf0;
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+        footer a:hover {
+            color: var(--bs-primary-light);
+            text-decoration: underline;
+        }
+
+/* =========================================================
+NAVBAR
+========================================================= */
+.navbar {
+    align-items: center;
+    background: linear-gradient(to right, #b8860b, #8b6914);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    min-height: 70px;
+    padding: 0.75rem 2rem;
+}
+
+    .navbar form {
+        align-items: center;
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    /* ALIGNMENT FIXES */
+    .navbar .nav-item form {
+        display: inline-block !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .navbar .btn-link.nav-link {
+        padding-bottom: 0 !important;
+        padding-top: 0 !important;
+    }
+
+/* BRAND */
+.navbar-brand {
+    align-items: center;
+    color: #fffaf0 !important;
+    display: flex;
+    font-size: 1.5rem;
+    font-weight: 700;
+    gap: 0.5rem;
+}
+
+    .navbar-brand:hover,
+    .navbar-nav .nav-link:hover {
+        color: var(--bs-primary-light) !important;
+    }
+
+/* LINKS */
+.navbar-nav .nav-link {
+    color: #fffaf0 !important;
+    font-weight: 500;
+    padding: 0.25rem 0.75rem;
+}
+
+/* SEARCH INPUT */
+.navbar .form-control {
+    background-color: #fffaf0;
+    border: none;
+    border-radius: 25px;
+    color: #3b2f2f;
+    height: 2.25rem;
+    margin-left: 1.25rem;
+    padding: 0.5rem 1rem;
+    transition: box-shadow 0.25s ease;
+    width: clamp(160px, 20vw, 380px);
+}
+
+    .navbar .form-control:focus {
+        box-shadow: 0 0 8px rgba(255,255,255,0.4);
+    }
+
+/* SEARCH BUTTON */
+.navbar .btn-outline-light {
+    align-items: center;
+    border-color: #fffaf0;
+    border-radius: 50%;
+    color: #fffaf0;
+    display: flex;
+    height: 2.25rem;
+    justify-content: center;
+    width: 2.25rem;
+}
+
+    .navbar .btn-outline-light:hover {
+        background-color: #fffaf0;
+        color: #8b6914;
+    }
+
+/* LOGOUT FIXES */
+#logoutForm {
+    display: inline !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#logout {
+    line-height: 1.5rem !important;
+    margin: 0 !important;
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+}

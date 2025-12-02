@@ -80,7 +80,7 @@
               "RelativeDocumentMoniker": "BookNest.API\\appsettings.json",
               "ToolTip": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest\\BookNest.API\\appsettings.json",
               "RelativeToolTip": "BookNest.API\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-12-02T11:13:32.685Z",
               "EditorCaption": ""
@@ -119,8 +119,7 @@
               "RelativeToolTip": "BookNest.API\\wwwroot\\css\\auth.css",
               "ViewState": "AgIAAFoAAAAAAAAAAAAAAFkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-12-02T10:23:18.845Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-02T10:23:18.845Z"
             },
             {
               "$type": "Document",

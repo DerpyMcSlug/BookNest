@@ -4,9 +4,9 @@
     <div class="row pt-4 pb-5">
         <div class="col-6"><h2 class="text-primary">Category List</h2></div>
         <div class="col-6 text-end">
-            <a asp-controller="Category" asp-action="Create" class="btn btn-primary">
-                <i class="bi bi-plus-circle"></i>  Create New Category
-            </a>
+            <button class="btn btn-primary" onclick="openAdminModal('/admin/category/upsert')">
+                <i class="bi bi-plus-circle"></i> Create Category
+            </button>
         </div>
     </div>
 </div>
@@ -19,6 +19,8 @@
         </tr>
     </thead>
 </table>
+
+<div id="modalContainer"></div>
 
 @section Scripts {
     <script src="~/js/category.js"></script>

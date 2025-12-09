@@ -70,17 +70,19 @@
                             <label asp-for="Input.State" class="ms-2 text-muted">State</label>
                             <span asp-validation-for="Input.State" class="text-danger"></span>
                         </div>
+
                         <div class="form-floating mb-3 col-md-6">
                             <input asp-for="Input.PostalCode" class="form-control" aria-required="true" placeholder="" />
                             <label asp-for="Input.PostalCode" class="ms-2 text-muted">Postal Code</label>
                             <span asp-validation-for="Input.PostalCode" class="text-danger"></span>
                         </div>
+
                         <div class="form-floating mb-3 col-md-6">
                             <input asp-for="Input.PhoneNumber" class="form-control" aria-required="true" placeholder="" pattern="^\+?[0-9\s\-()]{7,20}$" />
                             <label asp-for="Input.PhoneNumber" class="ms-2 text-muted">Phone Number</label>
                             <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
                         </div>
-                        <!-- here -->
+
                         @if(User.IsInRole("Admin"))
 						{
 							<div class="form-floating mb-3 col-md-6">
@@ -94,8 +96,17 @@
                                 <option disabled selected>--Select Company--</option>
                             </select>
                         </div>
-                        <div class="col-12">
-                            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+
+                        <div class="row align-items-center">
+                            <div class="col-auto">
+                                <div class="g-recaptcha" data-sitekey="6LdMkSAsAAAAALeYNHTWIu_qVw49a3pfU8xgLfjY"></div>
+                            </div>
+
+                            <div class="col">
+                                <button id="registerSubmit" type="submit" class="btn btn-lg btn-primary w-100">
+                                    Register
+                                </button>
+                            </div>
                         </div>
                     </form>
                 </section>                
@@ -190,6 +201,7 @@
                 passwordInput.type === "password" ? "text" : "password";
         }
     </script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 }
 
 @section Styles {

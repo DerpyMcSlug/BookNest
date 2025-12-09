@@ -4,30 +4,6 @@ $(document).ready(function () {
     LoadDataTable();
 });
 
-
-function LoadDataTable() {
-    dataTable = $('#tableData').DataTable({
-        "ajax": { url: '/admin/product/getall' },
-        "columns": [
-            { data: 'title', "width": "15%" },
-            { data: 'isbn', "width": "15%" },
-            { data: 'listPrice', "width": "10%" },
-            { data: 'author', "width": "15%" },
-            { data: 'category.name', "width": "10%" },
-            {
-                data: 'id',
-                "render": function (data) {
-                    return `<div class="w-75 btn-group" role="group"> 
-                        <a href="product/upsert?id=${data}" class="btn btn-success mx-2"> <i class="bi bi-pencil-square"> </i> Edit </a>
-                        <a onClick=Delete('product/delete?id=${data}') class="btn btn-danger mx-2"> <i class="bi bi-trash-fill"> </i> Delete </a>
-                    </div>`
-                },
-                "width": "22%"
-            }
-        ]
-    });
-}
-
 function Delete(url) {
     Swal.fire({
         title: "Are you sure?",
@@ -46,7 +22,74 @@ function Delete(url) {
                     dataTable.ajax.reload();
                     toastr.success(data.message);
                 }
-            })
+            });
+        }
+    });
+}
+
+function LoadDataTable() {
+    dataTable = $('#tableData').DataTable({
+        ajax: { url: '/admin/product/getall' },
+        columns: [
+            { data: 'title', width: "15%" },
+            { data: 'isbn', width: "15%" },
+            { data: 'listPrice', width: "10%" },
+            { data: 'author', width: "15%" },
+            { data: 'category.name', width: "10%" },
+            {
+                data: 'id',
+                render: function (data) {
+                    return `
+                        <div class="w-75 btn-group">
+                            <button onclick="openAdminModal('/admin/product/upsert/${data}')" class="btn btn-success mx-2">
+                                <i class="bi bi-pencil-square"></i> Edit
+                            </button>
+                            <button onclick="Delete('/admin/product/delete/${data}')" class="btn btn-danger mx-2">
+                                <i class="bi bi-trash-fill"></i> Delete
+                            </button>
+                        </div>`;
+                },
+                width: "22%"
+            }
+        ]
+    });
+}
+
+function openAdminModal(url) {
+    $("#adminModal").remove(); // PREVENT DUPLICATION
+
+    $.get(url, function (html) {
+        $("#modalContainer").html(`
+            <div class="modal fade" id="adminModal" tabindex="-1">
+                <div class="modal-dialog modal-xl modal-dialog-centered">
+                    <div class="modal-content">${html}</div>
+                </div>
+            </div>
+        `);
+
+        let modal = new bootstrap.Modal(document.getElementById("adminModal"));
+        modal.show();
+    });
+}
+
+function submitProductForm() {
+    var form = $("#productForm")[0];
+    var formData = new FormData(form);
+
+    $.ajax({
+        url: "/admin/product/upsert",
+        type: "POST",
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function (res) {
+            if (res.success) {
+                $("#adminModal").modal("hide");
+                dataTable.ajax.reload();
+                toastr.success("Product saved successfully");
+            } else {
+                $("#adminModal .modal-content").html(res.html);
+            }
         }
     });
 }

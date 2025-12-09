@@ -1,3 +1,4 @@
+﻿using BookNest.Areas.Identity.Pages.Account;
 using BookNest.DataAccess.Repository.IRepository;
 using BookNest.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -21,12 +22,11 @@ namespace BookNest.Areas.Customer.Controllers
             _shoppingCartRepo = shoppingCartRepo;
         }
 
-		public IActionResult Index(string? search)
+		public IActionResult Index(string? search, string? category)
 		{
-			// Load products + category
 			var allProducts = _productRepo.GetAll(includeProperties: "Category").ToList();
 
-			// Apply search filter
+			// Search filter
 			if (!string.IsNullOrWhiteSpace(search))
 			{
 				allProducts = allProducts.Where(p =>
@@ -35,7 +35,14 @@ namespace BookNest.Areas.Customer.Controllers
 				).ToList();
 			}
 
-			// Group products by category and remove empty categories
+			// Category filter
+			if (!string.IsNullOrWhiteSpace(category))
+			{
+				allProducts = allProducts
+					.Where(p => p.Category.Name.Equals(category, StringComparison.OrdinalIgnoreCase))
+					.ToList();
+			}
+
 			var grouped = allProducts
 				.GroupBy(p => p.Category.Name)
 				.OrderBy(g => g.Key)
@@ -46,8 +53,8 @@ namespace BookNest.Areas.Customer.Controllers
 
 		public IActionResult Details(Guid productId)
         {
-            ShoppingCart shoppingCart = new ShoppingCart() 
-            { 
+            ShoppingCart shoppingCart = new ShoppingCart()
+            {
                 Product = _productRepo.Get(u => u.Id == productId, includeProperties: "Category"),
                 Count = 1,
                 ProductId = productId
@@ -68,7 +75,7 @@ namespace BookNest.Areas.Customer.Controllers
 
             if (cartDb == null)
             {
-                _shoppingCartRepo.Add(shoppingCart);                                
+                _shoppingCartRepo.Add(shoppingCart);
             }
             else
             {

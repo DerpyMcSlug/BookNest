@@ -108,7 +108,25 @@ namespace BookNest.Areas.Identity.Pages.Account
 
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
 
-            if (ModelState.IsValid)
+			// --- reCAPTCHA verification ---
+			var captchaResponse = Request.Form["g-recaptcha-response"];
+			var secret = "6LdMkSAsAAAAAL0GarewhefSM1SDLhdGoiwG-8Ft"; 
+
+			using var http = new HttpClient();
+			var captchaVerify = await http.PostAsync(
+				$"https://www.google.com/recaptcha/api/siteverify?secret={secret}&response={captchaResponse}",
+				null
+			);
+
+			var captchaResult = await captchaVerify.Content.ReadFromJsonAsync<RecaptchaResult>();
+
+			if (captchaResult == null || !captchaResult.success)
+			{
+				ModelState.AddModelError(string.Empty, "Captcha verification failed. Please try again.");
+				return Page();
+			}
+
+			if (ModelState.IsValid)
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true

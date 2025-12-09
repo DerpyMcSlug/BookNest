@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.CodeAnalysis.Options;
+using static BookNest.Areas.Customer.Controllers.HomeController;
 
 namespace BookNest.Areas.Identity.Pages.Account
 {
@@ -172,7 +173,24 @@ namespace BookNest.Areas.Identity.Pages.Account
         {
             returnUrl ??= Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
-            if (ModelState.IsValid)
+			var captchaResponse = Request.Form["g-recaptcha-response"];
+			var secret = "6LdMkSAsAAAAAL0GarewhefSM1SDLhdGoiwG-8Ft";
+
+			using var http = new HttpClient();
+			var captchaVerify = await http.PostAsync(
+				$"https://www.google.com/recaptcha/api/siteverify?secret={secret}&response={captchaResponse}",
+				null
+			);
+
+			var captchaResult = await captchaVerify.Content.ReadFromJsonAsync<RecaptchaResult>();
+
+			if (captchaResult == null || !captchaResult.success)
+			{
+				ModelState.AddModelError(string.Empty, "Captcha verification failed. Please try again.");
+				return Page();
+			}
+
+			if (ModelState.IsValid)
             {
                 var user = CreateUser();
 

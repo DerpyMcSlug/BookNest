@@ -30,81 +30,68 @@ namespace BookNest.Areas.Admin.Controllers
             return View(objProductList);
         }
 
-        public IActionResult Upsert(Guid? id)
-        {
-            ProductViewModel productVM = new()
-            {
-                CategoryList = CategoryList(),
-                Product = new Product()
-                {
-                    Id = Guid.NewGuid(),
-                }
-            };
+		public IActionResult Upsert(Guid? id)
+		{
+			ProductViewModel productVM = new()
+			{
+				CategoryList = CategoryList(),
+				Product = new Product()
+			};
 
-            if (id != Guid.Empty)
-            {
-                productVM.Product = _productRepo.Get(p => p.Id == id);
-            }
+			if (id == null || id == Guid.Empty)
+			{
+				ViewBag.IsCreate = true;
+				return PartialView("_ProductForm", productVM);
+			}
 
-            return View(productVM);
-        }
+			ViewBag.IsCreate = false;
+			productVM.Product = _productRepo.Get(p => p.Id == id);
 
-        [HttpPost]
-        public IActionResult Upsert(ProductViewModel productVM, IFormFile? file)
-        {
-            bool isCreate = productVM.Product.Id == null;
+			return PartialView("_ProductForm", productVM);
+		}
 
-            if (ModelState.IsValid)
-            {
-                string wwwRootPath = _webHostEnvironment.WebRootPath;
-                if (file != null)
-                {
-                    string fileName = DateTime.Now.ToString("yyyymmddhhmmss") + Path.GetExtension(file.FileName);
-                    string productPath = Path.Combine(wwwRootPath, PRODUCT_PATH);
+		[HttpPost]
+		public IActionResult Upsert(ProductViewModel productVM, IFormFile? file)
+		{
+			if (!ModelState.IsValid)
+			{
+				productVM.CategoryList = CategoryList();
+				return PartialView("_ProductForm", productVM);
+			}
 
-                    if (!string.IsNullOrEmpty(productVM.Product.ImageUrl))
-                    {
-                        string oldImagePath = Path.Combine(wwwRootPath, productVM.Product.ImageUrl.TrimStart('\\'));
-                        if (System.IO.File.Exists(oldImagePath))
-                        {
-                            System.IO.File.Delete(oldImagePath);
-                        }
-                    }
+			string wwwRootPath = _webHostEnvironment.WebRootPath;
 
-                    using (FileStream fileStream = new FileStream(Path.Combine(productPath, fileName), FileMode.Create))
-                    {
-                        file.CopyTo(fileStream);
-                    }
+			if (file != null)
+			{
+				string fileName = DateTime.Now.ToString("yyyyMMddHHmmss") + Path.GetExtension(file.FileName);
+				string productPath = Path.Combine(wwwRootPath, PRODUCT_PATH);
 
-                    productVM.Product.ImageUrl = @"\" + PRODUCT_PATH + @"\" + fileName;
-                }
+				if (!string.IsNullOrEmpty(productVM.Product.ImageUrl))
+				{
+					string oldImagePath = Path.Combine(wwwRootPath, productVM.Product.ImageUrl.TrimStart('\\'));
+					if (System.IO.File.Exists(oldImagePath))
+						System.IO.File.Delete(oldImagePath);
+				}
 
-                string infoStr = "";
+				using (FileStream fileStream = new FileStream(Path.Combine(productPath, fileName), FileMode.Create))
+				{
+					file.CopyTo(fileStream);
+				}
 
-                if (isCreate)
-                {
-                    _productRepo.Add(productVM.Product);
-                    infoStr = "created";
-                }
-                else
-                {
-                    _productRepo.Update(productVM.Product);
-                    infoStr = "updated";
-                }
+				productVM.Product.ImageUrl = @"\" + PRODUCT_PATH + @"\" + fileName;
+			}
 
-                _productRepo.Save();
-                TempData["success"] = $"Product {infoStr} successfully";
-                return RedirectToAction(nameof(Index));
-            }
-            else
-            {
-                TempData["error"] = "Failed to create a Product";
-                productVM.CategoryList = CategoryList();
-                return View(productVM);
-            }
-        }
+			if (productVM.Product.Id == Guid.Empty)
+				_productRepo.Add(productVM.Product);
+			else
+				_productRepo.Update(productVM.Product);
 
-        private IEnumerable<SelectListItem> CategoryList()
+			_productRepo.Save();
+
+			return Json(new { success = true });
+		}
+
+		private IEnumerable<SelectListItem> CategoryList()
         {
             return _categoryRepo.GetAll().Select(u => new SelectListItem
             {

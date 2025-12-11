@@ -128,5 +128,6 @@ namespace BookNest.Areas.Identity.Pages.Account
                 return Page();
             }
         }
+
     }
 }

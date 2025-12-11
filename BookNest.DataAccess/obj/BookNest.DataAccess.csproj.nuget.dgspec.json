@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Downloads\\Finale\\BookNest\\BookNest.DataAccess\\BookNest.DataAccess.csproj": {}
+    "C:\\ASm\\BookNest-main (3)\\BookNest-main\\BookNest.DataAccess\\BookNest.DataAccess.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Downloads\\Finale\\BookNest\\BookNest.DataAccess\\BookNest.DataAccess.csproj": {
+    "C:\\ASm\\BookNest-main (3)\\BookNest-main\\BookNest.DataAccess\\BookNest.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest\\BookNest.DataAccess\\BookNest.DataAccess.csproj",
+        "projectUniqueName": "C:\\ASm\\BookNest-main (3)\\BookNest-main\\BookNest.DataAccess\\BookNest.DataAccess.csproj",
         "projectName": "BookNest.DataAccess",
-        "projectPath": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest\\BookNest.DataAccess\\BookNest.DataAccess.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest\\BookNest.DataAccess\\obj\\",
+        "projectPath": "C:\\ASm\\BookNest-main (3)\\BookNest-main\\BookNest.DataAccess\\BookNest.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\ThinkPad\\.nuget\\packages\\",
+        "outputPath": "C:\\ASm\\BookNest-main (3)\\BookNest-main\\BookNest.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ThinkPad\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,17 +26,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Admin\\Downloads\\Finale\\BookNest\\BookNest.Models\\BookNest.Models.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest\\BookNest.Models\\BookNest.Models.csproj"
+              "C:\\ASm\\BookNest-main (3)\\BookNest-main\\BookNest.Models\\BookNest.Models.csproj": {
+                "projectPath": "C:\\ASm\\BookNest-main (3)\\BookNest-main\\BookNest.Models\\BookNest.Models.csproj"
               },
-              "C:\\Users\\Admin\\Downloads\\Finale\\BookNest\\BookNest.Utility\\BookNest.Utility.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest\\BookNest.Utility\\BookNest.Utility.csproj"
+              "C:\\ASm\\BookNest-main (3)\\BookNest-main\\BookNest.Utility\\BookNest.Utility.csproj": {
+                "projectPath": "C:\\ASm\\BookNest-main (3)\\BookNest-main\\BookNest.Utility\\BookNest.Utility.csproj"
               }
             }
           }
@@ -74,6 +75,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "NPOI": {
+              "target": "Package",
+              "version": "[2.7.5, )"
             }
           },
           "imports": [
@@ -92,24 +97,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.307/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Admin\\Downloads\\Finale\\BookNest\\BookNest.Models\\BookNest.Models.csproj": {
+    "C:\\ASm\\BookNest-main (3)\\BookNest-main\\BookNest.Models\\BookNest.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest\\BookNest.Models\\BookNest.Models.csproj",
+        "projectUniqueName": "C:\\ASm\\BookNest-main (3)\\BookNest-main\\BookNest.Models\\BookNest.Models.csproj",
         "projectName": "BookNest.Models",
-        "projectPath": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest\\BookNest.Models\\BookNest.Models.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest\\BookNest.Models\\obj\\",
+        "projectPath": "C:\\ASm\\BookNest-main (3)\\BookNest-main\\BookNest.Models\\BookNest.Models.csproj",
+        "packagesPath": "C:\\Users\\ThinkPad\\.nuget\\packages\\",
+        "outputPath": "C:\\ASm\\BookNest-main (3)\\BookNest-main\\BookNest.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ThinkPad\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -118,6 +123,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -160,24 +166,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.307/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Admin\\Downloads\\Finale\\BookNest\\BookNest.Utility\\BookNest.Utility.csproj": {
+    "C:\\ASm\\BookNest-main (3)\\BookNest-main\\BookNest.Utility\\BookNest.Utility.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest\\BookNest.Utility\\BookNest.Utility.csproj",
+        "projectUniqueName": "C:\\ASm\\BookNest-main (3)\\BookNest-main\\BookNest.Utility\\BookNest.Utility.csproj",
         "projectName": "BookNest.Utility",
-        "projectPath": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest\\BookNest.Utility\\BookNest.Utility.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest\\BookNest.Utility\\obj\\",
+        "projectPath": "C:\\ASm\\BookNest-main (3)\\BookNest-main\\BookNest.Utility\\BookNest.Utility.csproj",
+        "packagesPath": "C:\\Users\\ThinkPad\\.nuget\\packages\\",
+        "outputPath": "C:\\ASm\\BookNest-main (3)\\BookNest-main\\BookNest.Utility\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ThinkPad\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -186,6 +192,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -235,7 +242,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.307/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,4 +1,3 @@
-wwwroot\css.zip
 wwwroot\css\auth.css
 wwwroot\css\base.css
 wwwroot\css\components.css
@@ -10,7 +9,6 @@ wwwroot\images\banner-books.jpg
 wwwroot\images\product\20242114072105.jpg
 wwwroot\images\product\20242214032258.jpg
 wwwroot\images\product\20244814024846.jpg
-wwwroot\images\product\20251209181253.webp
 wwwroot\images\product\20254702054753.png
 wwwroot\images\product\AbaddonsGate.jpg
 wwwroot\images\product\BabylonsAshes.jpg

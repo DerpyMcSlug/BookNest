@@ -7,13 +7,13 @@ namespace BookNest.DataAccess.Repository
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        private readonly ApplicationDbContext _db;
+        protected readonly ApplicationDbContext _db;
         internal DbSet<T> dbSet;
 
         public Repository(ApplicationDbContext db)
         {
             _db = db;
-            this.dbSet = _db.Set<T>();
+            dbSet = _db.Set<T>();
         }
 
         public void Add(T entity)
@@ -23,35 +23,34 @@ namespace BookNest.DataAccess.Repository
 
         public T Get(Expression<Func<T, bool>> filter, string? includeProperties = null)
         {
-            IQueryable<T> query = dbSet;
-            query = query.Where(filter);
+            IQueryable<T> query = dbSet.Where(filter);
+
             if (!string.IsNullOrEmpty(includeProperties))
             {
-                foreach (var property in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                foreach (var property in includeProperties.Split(',', StringSplitOptions.RemoveEmptyEntries))
                 {
                     query = query.Include(property);
                 }
             }
-            
-            return query.FirstOrDefault();
+
+            return query.FirstOrDefault()!;
         }
 
         public IEnumerable<T> GetAll(Expression<Func<T, bool>>? filter = null, string? includeProperties = null)
         {
             IQueryable<T> query = dbSet;
-            if(filter != null)
-            {
+
+            if (filter != null)
                 query = query.Where(filter);
-            }
-                
+
             if (!string.IsNullOrEmpty(includeProperties))
             {
-                foreach (var property in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                foreach (var property in includeProperties.Split(',', StringSplitOptions.RemoveEmptyEntries))
                 {
                     query = query.Include(property);
                 }
             }
-            
+
             return query.ToList();
         }
 
@@ -65,6 +64,7 @@ namespace BookNest.DataAccess.Repository
             dbSet.RemoveRange(entities);
         }
 
+        // Implemented Save to persist changes via the DbContext
         public void Save()
         {
             _db.SaveChanges();

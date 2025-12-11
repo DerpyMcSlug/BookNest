@@ -6,7 +6,7 @@ namespace BookNest.Models
     public class Company : BaseModel
     {
         [Required]
-        public string Name { get; set; }
+        public string? Name { get; set; }
         [DisplayName("Street Address")]
         public string? StreetAddress { get; set; }
         public string? City { get; set; }

@@ -1,5 +1,5 @@
 ﻿@page
-@model LoginModel
+@model BookNest.Areas.Identity.Pages.Account.LoginModel
 
 <div class="login-card shadow border-0 mt-4">
     <div class="card-header bg-primary bg-gradient mt-0 py-4"
@@ -10,6 +10,29 @@
             </div>
         </div>
     </div>
+    @{
+        ViewData["Title"] = "Login";
+    }
+
+    <h3>Login</h3>
+
+    <form method="post" asp-action="Login">
+        <div class="mb-3">
+            <label>Email</label>
+            <input type="email" name="email" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label>Password</label>
+            <input type="password" name="password" class="form-control" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+
+    @if (TempData["error"] != null)
+    {
+        <div class="alert alert-danger mt-3">@TempData["error"]</div>
+    }
+
 
     <div class="card-body p-5">
 
@@ -48,19 +71,12 @@
             </div>
 
             <!-- SUBMIT -->
-            <div class="row align-items-center mt-3">
-                <div class="col-auto"> <div class="g-recaptcha" data-sitekey="6LdMkSAsAAAAALeYNHTWIu_qVw49a3pfU8xgLfjY"> </div></div>
-
-                <div class="col">
-                    <button id="login-submit" type="submit"
-                            class="w-100 btn btn-lg btn-primary"
-                            style="background: linear-gradient(135deg, #b8860b, #d4a017) !important;
-                       border-radius: 12px !important;
-                       border: none !important;">
-                        Log in
-                    </button>
-                </div>
-            </div>
+            <button id="login-submit" type="submit"
+                    class="w-100 btn btn-lg btn-primary"
+                    style="background: linear-gradient(135deg, #b8860b, #d4a017) !important;
+                           border-radius: 12px !important; border: none !important;">
+                Log in
+            </button>
 
             <!-- LINKS -->
             <div class="d-flex justify-content-between pt-3">
@@ -99,15 +115,19 @@
 
     </div>
 </div>
-
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script>
         function togglePassword() {
             const input = document.getElementById("passwordInput");
             input.type = input.type === "password" ? "text" : "password";
+        }
+
+        // Optional: hiển thị alert khi 2FA đã gửi
+        const twoFAEmail = '@TempData["Email2FA"]';
+        if (twoFAEmail) {
+            alert(`Mã 2FA đã được gửi tới: ${twoFAEmail}`);
         }
     </script>
 }

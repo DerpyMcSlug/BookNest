@@ -1,13 +1,12 @@
-C:\Users\Admin\Downloads\Finale\BookNest\BookNest.Utility\bin\Debug\net8.0\BookNest.Utility.deps.json
-C:\Users\Admin\Downloads\Finale\BookNest\BookNest.Utility\bin\Debug\net8.0\BookNest.Utility.dll
-C:\Users\Admin\Downloads\Finale\BookNest\BookNest.Utility\bin\Debug\net8.0\BookNest.Utility.pdb
-C:\Users\Admin\Downloads\Finale\BookNest\BookNest.Utility\obj\Debug\net8.0\BookNest.Utility.csproj.AssemblyReference.cache
-C:\Users\Admin\Downloads\Finale\BookNest\BookNest.Utility\obj\Debug\net8.0\BookNest.Utility.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Admin\Downloads\Finale\BookNest\BookNest.Utility\obj\Debug\net8.0\BookNest.Utility.AssemblyInfoInputs.cache
-C:\Users\Admin\Downloads\Finale\BookNest\BookNest.Utility\obj\Debug\net8.0\BookNest.Utility.AssemblyInfo.cs
-C:\Users\Admin\Downloads\Finale\BookNest\BookNest.Utility\obj\Debug\net8.0\BookNest.Utility.csproj.CoreCompileInputs.cache
-C:\Users\Admin\Downloads\Finale\BookNest\BookNest.Utility\obj\Debug\net8.0\BookNest.Utility.dll
-C:\Users\Admin\Downloads\Finale\BookNest\BookNest.Utility\obj\Debug\net8.0\refint\BookNest.Utility.dll
-C:\Users\Admin\Downloads\Finale\BookNest\BookNest.Utility\obj\Debug\net8.0\BookNest.Utility.pdb
-C:\Users\Admin\Downloads\Finale\BookNest\BookNest.Utility\obj\Debug\net8.0\ref\BookNest.Utility.dll
-C:\Users\Admin\Downloads\Finale\BookNest\BookNest.Utility\obj\Debug\net8.0\BookNest.Utility.sourcelink.json
+C:\ASm\BookNest-main (3)\BookNest-main\BookNest.Utility\bin\Debug\net8.0\BookNest.Utility.deps.json
+C:\ASm\BookNest-main (3)\BookNest-main\BookNest.Utility\bin\Debug\net8.0\BookNest.Utility.dll
+C:\ASm\BookNest-main (3)\BookNest-main\BookNest.Utility\bin\Debug\net8.0\BookNest.Utility.pdb
+C:\ASm\BookNest-main (3)\BookNest-main\BookNest.Utility\obj\Debug\net8.0\BookNest.Utility.csproj.AssemblyReference.cache
+C:\ASm\BookNest-main (3)\BookNest-main\BookNest.Utility\obj\Debug\net8.0\BookNest.Utility.GeneratedMSBuildEditorConfig.editorconfig
+C:\ASm\BookNest-main (3)\BookNest-main\BookNest.Utility\obj\Debug\net8.0\BookNest.Utility.AssemblyInfoInputs.cache
+C:\ASm\BookNest-main (3)\BookNest-main\BookNest.Utility\obj\Debug\net8.0\BookNest.Utility.AssemblyInfo.cs
+C:\ASm\BookNest-main (3)\BookNest-main\BookNest.Utility\obj\Debug\net8.0\BookNest.Utility.csproj.CoreCompileInputs.cache
+C:\ASm\BookNest-main (3)\BookNest-main\BookNest.Utility\obj\Debug\net8.0\BookNest.Utility.dll
+C:\ASm\BookNest-main (3)\BookNest-main\BookNest.Utility\obj\Debug\net8.0\refint\BookNest.Utility.dll
+C:\ASm\BookNest-main (3)\BookNest-main\BookNest.Utility\obj\Debug\net8.0\BookNest.Utility.pdb
+C:\ASm\BookNest-main (3)\BookNest-main\BookNest.Utility\obj\Debug\net8.0\ref\BookNest.Utility.dll

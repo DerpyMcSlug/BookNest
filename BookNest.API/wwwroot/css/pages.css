@@ -342,30 +342,3 @@ PRICE TABLE
     color: #c57b2a;
     font-weight: 700;
 }
-
-/* Prevent global table styles from overriding this */
-.order-table-container table.order-table {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-    /* Stronger selector for cell padding */
-    .order-table-container table.order-table th,
-    .order-table-container table.order-table td {
-        padding: 8px 12px !important;
-        font-size: 0.9rem;
-    }
-
-/* Stronger button override */
-.order-table-container .btn-details {
-    padding: 4px 8px !important;
-    font-size: 0.75rem !important;
-    white-space: nowrap;
-}
-
-/* Force narrow action column */
-.order-table-container table.order-table th:last-child,
-.order-table-container table.order-table td:last-child {
-    width: 90px !important;
-    text-align: center;
-}

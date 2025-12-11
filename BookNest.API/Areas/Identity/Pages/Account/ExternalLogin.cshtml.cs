@@ -18,6 +18,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using BookNest.Models;
+using BookNest.Services;
 
 namespace BookNest.Areas.Identity.Pages.Account
 {

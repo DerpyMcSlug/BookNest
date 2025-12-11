@@ -3,6 +3,7 @@ using BookNest.Models;
 using BookNest.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using BookNest.DataAccess.Repository;
 
 namespace BookNest.Areas.Admin.Controllers
 {
@@ -22,46 +23,59 @@ namespace BookNest.Areas.Admin.Controllers
 			return View(categories);
 		}
 
-		public IActionResult Upsert(Guid? id)
-		{
-			if (id == null || id == Guid.Empty)
-			{
-				ViewBag.IsCreate = true;
-				return PartialView("_CategoryForm", new Category());
-			}
-
-			var category = _categoryRepo.Get(c => c.Id == id);
-			if (category == null)
-				return NotFound();
-
-			ViewBag.IsCreate = false;
-			return PartialView("_CategoryForm", category);
-		}
-
-		[HttpPost]
-		public IActionResult Upsert(Category category)
-		{
-			if (!ModelState.IsValid)
-			{
-				// Return HTML back to the modal
-				return PartialView("_CategoryForm", category);
-			}
-
-			if (category.Id == Guid.Empty)
-				_categoryRepo.Add(category);
-			else
-				_categoryRepo.Update(category);
-
-			_categoryRepo.Save();
-
-			return Json(new { success = true });
-		}
-
 		public IActionResult Create()
         {
-			return PartialView("_CategoryForm", new Category { Id = Guid.Empty });
-		}
+            return View();
+        }
 
+        [HttpPost]
+        public IActionResult Create(Category category)
+        {
+            if (category.Name == category.DisplayOrder.ToString())
+            {
+                ModelState.AddModelError("", "The Category Name cannot be the same as the Display Order");
+            }
+
+            if (ModelState.IsValid)
+            {
+                _categoryRepo.Add(category);
+                _categoryRepo.Save();
+                TempData["success"] = "Category created successfully";
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View();
+        }
+
+        public IActionResult Edit(Guid? id)
+        {
+            if (id == Guid.Empty)
+            {
+                return NotFound();
+            }
+
+            Category? category = _categoryRepo.Get(c => c.Id == id);
+            if (category == null)
+            {
+                return NotFound();
+            }
+
+            return View(category);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Category category)
+        {
+            if (ModelState.IsValid)
+            {                
+                _categoryRepo.Update(category);
+                _categoryRepo.Save();
+                TempData["success"] = "Category updated successfully";
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View();
+        }
 
 		[HttpDelete]
 		public IActionResult Delete(Guid id)

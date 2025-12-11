@@ -15,7 +15,7 @@ namespace BookNest.DataAccess.Repository
 
         public void Update(Category category)
         {
-            _db.Categories.Update(category);
+            _ = _db.Categories.Update(category);
         }
     }
 }

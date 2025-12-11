@@ -14,7 +14,7 @@ function LoadCategoryTable() {
                 data: 'id',
                 "render": function (data) {
                     return `<div class="w-75 btn-group" role="group">
-                       <button onclick="openAdminModal('/admin/category/upsert/${data}')" class="btn btn-success mx-2"><i class="bi bi-pencil-square"></i> Edit</button>
+                        <a href="/admin/category/edit/${data}" class="btn btn-success mx-2"> <i class="bi bi-pencil-square"> </i> Edit </a>
                         <a onClick=Delete('/admin/category/delete/${data}') class="btn btn-danger mx-2"> <i class="bi bi-trash-fill"> </i> Delete </a>
                     </div>`
                 },
@@ -46,46 +46,3 @@ function Delete(url) {
         }
     });
 }
-
-function openAdminModal(url) {
-    $.get(url, function (html) {
-
-        $("#modalContainer").html(`
-            <div class="modal fade" id="adminModal" tabindex="-1">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        ${html}
-                    </div>
-                </div>
-            </div>
-        `);
-
-        let modal = new bootstrap.Modal(document.getElementById("adminModal"));
-        modal.show();
-    });
-}
-
-$(document).on("submit", "#categoryForm", function (e) {
-    e.preventDefault();
-
-    $.ajax({
-        url: $(this).attr("action"),
-        type: "POST",
-        data: $(this).serialize(),
-        success: function (res) {
-            // JSON success case
-            if (res && res.success) {
-                bootstrap.Modal
-                    .getInstance(document.getElementById("adminModal"))
-                    .hide();
-
-                dataTable.ajax.reload(null, false);
-                toastr.success("Category saved successfully");
-            }
-            // HTML partial returned (validation error)
-            else {
-                $(".modal-content").html(res);
-            }
-        }
-    });
-});

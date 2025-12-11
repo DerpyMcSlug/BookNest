@@ -1,7 +1,5 @@
-﻿@model BookNest.Models.ViewModels.ShoppingCartViewModel
-
-<form id="checkoutForm" method="post">
-	@Html.AntiForgeryToken()
+﻿
+<form method="post">
 	<br />
 	<div class="container">
 		<div class="card shadow border-0">
@@ -14,262 +12,104 @@
 						</h5>
 					</div>
 					<div class="col-6 text-end">
-						<a asp-area="Customer" asp-controller="Cart" asp-action="Index"
-						   class="btn btn-outline-danger btn-sm">Back to Cart</a>
+						<a class="btn btn-outline-danger btn-sm">Back to Cart</a>
 					</div>
 				</div>
 			</div>
-
 			<div class="card-body">
 				<div class="container rounded p-2">
 					<div class="row">
-
-						<!-- LEFT SIDE: SHIPPING DETAILS -->
 						<div class="col-12 col-lg-6 pb-4">
-
-							<h4 class="d-flex justify-content-between align-items-center mb-3">
-								<span class="text-info">Shipping Details:</span>
-							</h4>
-
-							<!-- These inputs can later be bound to a Shipping ViewModel if you want -->
+							<div class="row">
+								<h4 class="d-flex justify-content-between align-items-center mb-3">
+									<span class="text-info">Shipping Details:</span>
+								</h4>
+							</div>
 							<div class="row my-1">
 								<div class="col-3">
 									<label>Name</label>
 								</div>
 								<div class="col-9">
-									<input asp-for="Name" class="form-control" />
+									<input class="form-control" />
 								</div>
 							</div>
-
 							<div class="row my-1">
 								<div class="col-3">
 									<label>Phone</label>
 								</div>
 								<div class="col-9">
-									<input asp-for="Phone" class="form-control" />
+									<input class="form-control" />
 								</div>
 							</div>
-
 							<div class="row my-1">
 								<div class="col-3">
 									<label>Street Address</label>
 								</div>
 								<div class="col-9">
-									<input asp-for="StreetAddress" class="form-control" />
+									<input class="form-control" />
 								</div>
 							</div>
-
 							<div class="row my-1">
 								<div class="col-3">
 									<label>City</label>
 								</div>
 								<div class="col-9">
-									<input asp-for="City" class="form-control" />
+									<input class="form-control" />
 								</div>
 							</div>
-
 							<div class="row my-1">
 								<div class="col-3">
 									<label>State</label>
 								</div>
 								<div class="col-9">
-									<input asp-for="State" class="form-control" />
+									<input class="form-control" />
 								</div>
 							</div>
-
 							<div class="row my-1">
 								<div class="col-3">
 									<label>Postal Code</label>
 								</div>
 								<div class="col-9">
-									<input asp-for="PostalCode" class="form-control" />
+									<input class="form-control" />
 								</div>
 							</div>
-
-							<h4 class="d-flex justify-content-between align-items-center mb-3" style="margin-top: 2%;">
-								<span class="text-info">Payment Method</span>
-							</h4>
-
-							<div class="form-check">
-								<input class="form-check-input" type="radio" name="PaymentMethod" value="COD" checked />
-								<label class="form-check-label">Cash on Delivery</label>
-							</div>
-
-							<div class="form-check">
-								<input class="form-check-input" type="radio" name="PaymentMethod" value="VNPay" />
-								<label class="form-check-label">VNPay</label>
-							</div>
 						</div>
-
-						<!-- RIGHT SIDE: ORDER SUMMARY -->
-						<div class="col-12 col-lg-5 offset-lg-1 d-flex flex-column">
-
+						<div class="col-12 col-lg-5 offset-lg-1">
 							<h4 class="d-flex justify-content-between align-items-center mb-3">
 								<span class="text-info">Order Summary:</span>
 							</h4>
+							<ul class="list-group mb-3">
+								<li class="list-group-item d-flex justify-content-between">
+									<div>
+										<h6 class="my-0">Title</h6>
+										<small class="text-muted">Quantity: Count</small>
+									</div>
+									<span class="text-muted">Price * Count </span>
+								</li>
 
-							<!-- Scroll buttons -->
-							<div class="d-flex justify-content-end mb-2 gap-2">
-								<button type="button" id="scrollUpBtn" class="btn btn-outline-secondary btn-sm" aria-label="Scroll up">
-									<i class="bi bi-chevron-up"></i>
-								</button>
-								<button type="button" id="scrollDownBtn" class="btn btn-outline-secondary btn-sm" aria-label="Scroll down">
-									<i class="bi bi-chevron-down"></i>
-								</button>
-							</div>
 
-							<!-- Scrollable list -->
-							<div id="orderSummaryScroll" style="max-height:320px; overflow-y:auto;">
-								<ul class="list-group mb-3">
-
-									@foreach (var item in Model.ShoppingCartList)
-									{
-										double unitPrice =
-										item.Count <= 50 ? item.Product.Price :
-										item.Count <= 100 ? item.Product.Price50 :
-										item.Product.Price100;
-
-										<li class="list-group-item d-flex justify-content-between align-items-center">
-											<div class="d-flex align-items-center">
-												<img src="@Url.Content(item.Product.ImageUrl)"
-													 alt="@item.Product.Title"
-													 class="rounded me-3"
-													 style="width:64px;height:64px;object-fit:cover;" />
-
-												<div>
-													<h6 class="my-0">@item.Product.Title</h6>
-													<small class="text-muted">Quantity: @item.Count</small>
-												</div>
-											</div>
-
-											<span class="text-muted">
-												@((unitPrice * item.Count).ToString("C0", new System.Globalization.CultureInfo("en-US")))
-											</span>
-										</li>
-									}
-								</ul>
-							</div>
-
-							<!-- Total stays fixed below -->
-							<div class="mt-3">
-								<ul class="list-group">
-									<li class="list-group-item d-flex justify-content-between bg-light">
-										<small class="text-info">Total (USD)</small>
-										<strong class="text-info">$ @Model.OrderTotal</strong>
-									</li>
-								</ul>
-							</div>
-
+								<li class="list-group-item d-flex justify-content-between bg-light">
+									<small class="text-info">Total (IDR)</small>
+									<strong class="text-info">Rp</strong>
+								</li>
+							</ul>
 						</div>
-
 					</div>
 				</div>
 			</div>
-
 			<div class="card-footer">
 				<div class="row">
 					<div class="col-12 col-md-8 pt-2">
 						<p style="color:maroon; font-size:14px;">
-							Estimate Arrival Date: 3–5 business days
+							Estimate Arrival Date:
+
 						</p>
 					</div>
 					<div class="col-12 col-md-4">
-						<button type="submit" value="Place Order" class="btn btn-primary form-control">
-							Place Order
-						</button>
+						<button type="submit" value="Place Order" class="btn btn-primary form-control">Place Order</button>
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</div>
 </form>
-
-<div class="modal fade" id="confirmationModal" tabindex="-1" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered">
-		<div class="modal-content p-3">
-
-			<div class="modal-header">
-				<h5 class="modal-title text-success">Order Confirmed!</h5>
-				<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-			</div>
-
-			<div class="modal-body">
-				<p>Your order has been placed successfully.</p>
-				<p><strong>Order ID:</strong> <span id="orderIdSpan"></span></p>
-			</div>
-
-			<div class="modal-footer">
-				<a id="detailsLink"
-				   class="btn btn-primary"
-				   target="_blank"
-				   onclick="location.href='/Customer/Order/Details/' + $('#orderIdSpan').text()">
-					View Order Details
-				</a>
-
-				<a class="btn btn-secondary" href="/Customer/Home/Index">Back to Home</a>
-			</div>
-
-		</div>
-	</div>
-</div>
-
-@section Scripts {
-	<script>
-		$("#checkoutForm").submit(function (e) {
-			e.preventDefault();
-
-			$.ajax({
-				url: '@Url.Action("SummaryPOST", "Cart", new { area = "Customer" })',
-				type: "POST",
-				data: $(this).serialize(),
-				headers: {
-					"RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val()
-				},
-				success: function (response) {
-
-					if (response.success) {
-
-						if (response.redirectUrl) {
-							window.location.href = response.redirectUrl;
-							return;
-						}
-
-						$("#orderIdSpan").text(response.orderId);
-						var modal = new bootstrap.Modal(document.getElementById("confirmationModal"));
-						modal.show();
-					}
-				},
-				error: function (xhr) {
-					console.log("AJAX ERROR:", xhr.responseText);
-				}
-			});
-		});
-
-			 (function () {
-			const container = document.getElementById('orderSummaryScroll');
-			const upBtn = document.getElementById('scrollUpBtn');
-			const downBtn = document.getElementById('scrollDownBtn');
-			const SCROLL_STEP = 120;
-
-			if (!container) return;
-
-			function updateButtons() {
-				upBtn.disabled = container.scrollTop === 0;
-				downBtn.disabled = container.scrollHeight - container.clientHeight - container.scrollTop <= 1;
-			}
-
-			upBtn.addEventListener('click', function () {
-				container.scrollBy({ top: -SCROLL_STEP, behavior: 'smooth' });
-			});
-
-			downBtn.addEventListener('click', function () {
-				container.scrollBy({ top: SCROLL_STEP, behavior: 'smooth' });
-			});
-
-			container.addEventListener('scroll', updateButtons);
-
-			updateButtons(); // initial state
-		})();
-	</script>
-}

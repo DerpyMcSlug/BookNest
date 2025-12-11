@@ -1,21 +1,19 @@
 ﻿using BookNest.DataAccess.Data;
+using BookNest.DataAccess.Repository;
 using BookNest.DataAccess.Repository.IRepository;
 using BookNest.Models;
 
-namespace BookNest.DataAccess.Repository
+public class ProductRepository : Repository<Product>, IProductRepository
 {
-    public class ProductRepository : Repository<Product>, IProductRepository
+    private readonly ApplicationDbContext _db;
+
+    public ProductRepository(ApplicationDbContext db) : base(db)
     {
-        private ApplicationDbContext _db;
+        _db = db;
+    }
 
-        public ProductRepository(ApplicationDbContext db) : base(db)
-        {
-            _db = db;
-        }
-
-        public void Update(Product product)
-        {
-            _db.Products.Update(product);
-        }
+    public void Update(Product product)
+    {
+        _db.Products.Update(product);
     }
 }

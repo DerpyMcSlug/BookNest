@@ -135,27 +135,27 @@ namespace BookNest.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b724b42e-81ca-4c9b-b4ed-1d871e6b5eee"),
-                            Created = new DateTime(2024, 1, 14, 19, 16, 25, 531, DateTimeKind.Local).AddTicks(1644),
+                            Id = new Guid("08366134-aa61-4b97-8f9b-1aa17d66b242"),
+                            Created = new DateTime(2025, 12, 11, 15, 41, 8, 807, DateTimeKind.Local).AddTicks(8351),
                             DisplayOrder = 1,
                             Name = "Scifi",
-                            Updated = new DateTime(2024, 1, 14, 19, 16, 25, 531, DateTimeKind.Local).AddTicks(1659)
+                            Updated = new DateTime(2025, 12, 11, 15, 41, 8, 807, DateTimeKind.Local).AddTicks(8383)
                         },
                         new
                         {
-                            Id = new Guid("4df07ad0-94c9-463a-bf32-c8870345aba5"),
-                            Created = new DateTime(2024, 1, 14, 19, 16, 25, 531, DateTimeKind.Local).AddTicks(1742),
+                            Id = new Guid("9f5eeeac-95fc-47ef-99fc-b775431e978b"),
+                            Created = new DateTime(2025, 12, 11, 15, 41, 8, 807, DateTimeKind.Local).AddTicks(8899),
                             DisplayOrder = 2,
                             Name = "Action",
-                            Updated = new DateTime(2024, 1, 14, 19, 16, 25, 531, DateTimeKind.Local).AddTicks(1743)
+                            Updated = new DateTime(2025, 12, 11, 15, 41, 8, 807, DateTimeKind.Local).AddTicks(8917)
                         },
                         new
                         {
-                            Id = new Guid("0d4d9835-a600-497f-9c19-86e2c84cc0ce"),
-                            Created = new DateTime(2024, 1, 14, 19, 16, 25, 531, DateTimeKind.Local).AddTicks(1745),
+                            Id = new Guid("be776611-b2de-4e6c-8a3c-77eac2d8c0ce"),
+                            Created = new DateTime(2025, 12, 11, 15, 41, 8, 807, DateTimeKind.Local).AddTicks(8948),
                             DisplayOrder = 3,
                             Name = "History",
-                            Updated = new DateTime(2024, 1, 14, 19, 16, 25, 531, DateTimeKind.Local).AddTicks(1746)
+                            Updated = new DateTime(2025, 12, 11, 15, 41, 8, 807, DateTimeKind.Local).AddTicks(8948)
                         });
                 });
 
@@ -197,40 +197,124 @@ namespace BookNest.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("c949c935-76b2-43cc-adfd-374c0cf1ac41"),
+                            Id = new Guid("d3c3e1cb-7146-436b-973d-7a9e17aad693"),
                             City = "Tech City",
-                            Created = new DateTime(2024, 1, 14, 19, 16, 25, 531, DateTimeKind.Local).AddTicks(1973),
+                            Created = new DateTime(2025, 12, 11, 15, 41, 8, 807, DateTimeKind.Local).AddTicks(9612),
                             Name = "Tech Solution",
                             PhoneNumber = "6669990000",
                             PostalCode = "12121",
                             State = "IL",
                             StreetAddress = "123 Tech St",
-                            Updated = new DateTime(2024, 1, 14, 19, 16, 25, 531, DateTimeKind.Local).AddTicks(1974)
+                            Updated = new DateTime(2025, 12, 11, 15, 41, 8, 807, DateTimeKind.Local).AddTicks(9616)
                         },
                         new
                         {
-                            Id = new Guid("d3070373-bb9d-46e1-b629-ed0158f5eeda"),
+                            Id = new Guid("67daf9c6-7b27-4c3f-b9fb-0fa4f63e200f"),
                             City = "Vid City",
-                            Created = new DateTime(2024, 1, 14, 19, 16, 25, 531, DateTimeKind.Local).AddTicks(1983),
+                            Created = new DateTime(2025, 12, 11, 15, 41, 8, 807, DateTimeKind.Local).AddTicks(9632),
                             Name = "Vivid Books",
                             PhoneNumber = "7779990000",
                             PostalCode = "66666",
                             State = "IL",
                             StreetAddress = "999 Vid St",
-                            Updated = new DateTime(2024, 1, 14, 19, 16, 25, 531, DateTimeKind.Local).AddTicks(1984)
+                            Updated = new DateTime(2025, 12, 11, 15, 41, 8, 807, DateTimeKind.Local).AddTicks(9633)
                         },
                         new
                         {
-                            Id = new Guid("16ef7053-2d0c-44f7-878f-46e7b769aea6"),
+                            Id = new Guid("6fb4b932-5c54-4bf5-9e02-2007a0cbcddb"),
                             City = "Lala land",
-                            Created = new DateTime(2024, 1, 14, 19, 16, 25, 531, DateTimeKind.Local).AddTicks(1988),
+                            Created = new DateTime(2025, 12, 11, 15, 41, 8, 807, DateTimeKind.Local).AddTicks(9637),
                             Name = "Readers Club",
                             PhoneNumber = "1113335555",
                             PostalCode = "99999",
                             State = "NY",
                             StreetAddress = "999 Main St",
-                            Updated = new DateTime(2024, 1, 14, 19, 16, 25, 531, DateTimeKind.Local).AddTicks(1989)
+                            Updated = new DateTime(2025, 12, 11, 15, 41, 8, 807, DateTimeKind.Local).AddTicks(9637)
                         });
+                });
+
+            modelBuilder.Entity("BookNest.Models.Order", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PaymentMethod")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PostalCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("State")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StreetAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("TotalAmount")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("BookNest.Models.OrderItem", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("OrderId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("UnitPrice")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("OrderItems");
                 });
 
             modelBuilder.Entity("BookNest.Models.Product", b =>
@@ -289,10 +373,10 @@ namespace BookNest.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("624db19e-36aa-4e19-b38c-d8bb688eb0ad"),
+                            Id = new Guid("8c4b44e0-4657-42c6-a8d1-61933da57ee1"),
                             Author = "Corey, James S. A.",
-                            CategoryId = new Guid("b724b42e-81ca-4c9b-b4ed-1d871e6b5eee"),
-                            Created = new DateTime(2024, 1, 14, 19, 16, 25, 531, DateTimeKind.Local).AddTicks(2027),
+                            CategoryId = new Guid("08366134-aa61-4b97-8f9b-1aa17d66b242"),
+                            Created = new DateTime(2025, 12, 11, 15, 41, 8, 807, DateTimeKind.Local).AddTicks(9698),
                             Description = "<p>Humanity has colonized the solar system&mdash;Mars, the Moon, the Asteroid Belt and beyond&mdash;but the stars are still out of our reach.<br><br>Jim Holden is XO of an ice miner making runs from the rings of Saturn to the mining stations of the Belt. When he and his crew stumble upon a derelict ship, the&nbsp;<em>Scopuli</em>, they find themselves in possession of a secret they never wanted. A secret that someone is willing to kill for&mdash;and kill on a scale unfathomable to Jim and his crew. War is brewing in the system unless he can find out who left the ship and why.<br><br>Detective Miller is looking for a girl. One girl in a system of billions, but her parents have money and money talks. When the trail leads him to the&nbsp;<em>Scopuli</em>&nbsp;and rebel sympathizer Holden, he realizes that this girl may be the key to everything.<br><br>Holden and Miller must thread the needle between the Earth government, the Outer Planet revolutionaries, and secretive corporations&mdash;and the odds are against them. But out in the Belt, the rules are different, and one small ship can change the fate of the universe.</p>",
                             ISBN = "978-0-316-12908-4",
                             ImageUrl = "\\images\\product\\LeviathanWakes.jpg",
@@ -301,14 +385,14 @@ namespace BookNest.DataAccess.Migrations
                             Price100 = 260000.0,
                             Price50 = 280000.0,
                             Title = "Leviathan Wakes",
-                            Updated = new DateTime(2024, 1, 14, 19, 16, 25, 531, DateTimeKind.Local).AddTicks(2028)
+                            Updated = new DateTime(2025, 12, 11, 15, 41, 8, 807, DateTimeKind.Local).AddTicks(9698)
                         },
                         new
                         {
-                            Id = new Guid("b5348c3e-aaa6-494c-9be7-58e1be3be522"),
+                            Id = new Guid("c89e1e4c-3b59-4f97-a551-1aff731d2eca"),
                             Author = "Corey, James S. A.",
-                            CategoryId = new Guid("b724b42e-81ca-4c9b-b4ed-1d871e6b5eee"),
-                            Created = new DateTime(2024, 1, 14, 19, 16, 25, 531, DateTimeKind.Local).AddTicks(2036),
+                            CategoryId = new Guid("08366134-aa61-4b97-8f9b-1aa17d66b242"),
+                            Created = new DateTime(2025, 12, 11, 15, 41, 8, 807, DateTimeKind.Local).AddTicks(9716),
                             Description = "<p>We are not alone. On Ganymede, breadbasket of the outer planets, a Martian marine watches as her platoon is slaughtered by a monstrous supersoldier. On Earth, a high-level politician struggles to prevent interplanetary war from reigniting. And on Venus, an alien protomolecule has overrun the planet, wreaking massive, mysterious changes and threatening to spread out into the solar system.<br><br>In the vast wilderness of space, James Holden and the crew of the&nbsp;<em>Rocinante</em> have been keeping the peace for the Outer Planets Alliance. When they agree to help a scientist search war-torn Ganymede for a missing child, the future of humanity rests on whether a single ship can prevent an alien invasion that may have already begun.</p>",
                             ISBN = "978-0-316-12906-0",
                             ImageUrl = "\\images\\product\\CalibansWar.jpg",
@@ -317,14 +401,14 @@ namespace BookNest.DataAccess.Migrations
                             Price100 = 265000.0,
                             Price50 = 285000.0,
                             Title = "Caliban's War",
-                            Updated = new DateTime(2024, 1, 14, 19, 16, 25, 531, DateTimeKind.Local).AddTicks(2037)
+                            Updated = new DateTime(2025, 12, 11, 15, 41, 8, 807, DateTimeKind.Local).AddTicks(9717)
                         },
                         new
                         {
-                            Id = new Guid("a3cc0b7f-7e01-4b1f-9112-1a04eacdef51"),
+                            Id = new Guid("2d388a1d-9157-4609-af5a-12cfb253dcf7"),
                             Author = "Corey, James S. A.",
-                            CategoryId = new Guid("b724b42e-81ca-4c9b-b4ed-1d871e6b5eee"),
-                            Created = new DateTime(2024, 1, 14, 19, 16, 25, 531, DateTimeKind.Local).AddTicks(2042),
+                            CategoryId = new Guid("08366134-aa61-4b97-8f9b-1aa17d66b242"),
+                            Created = new DateTime(2025, 12, 11, 15, 41, 8, 807, DateTimeKind.Local).AddTicks(9720),
                             Description = "<p>Abaddon's Gate is the third book in the New York Times bestselling Expanse series.<br><br>For generations, the solar system - Mars, the Moon, the Asteroid Belt - was humanity's great frontier. Until now. The alien artefact working through its program under the clouds of Venus has emerged to build a massive structure outside the orbit of Uranus: a gate that leads into a starless dark.<br><br>Jim Holden and the crew of the Rocinante are part of a vast flotilla of scientific and military ships going out to examine the artefact. But behind the scenes, a complex plot is unfolding, with the destruction of Holden at its core. As the emissaries of the human race try to find whether the gate is an opportunity or a threat, the greatest danger is the one they brought with them.</p>",
                             ISBN = "978-0-316-12907-7",
                             ImageUrl = "\\images\\product\\AbaddonsGate.jpg",
@@ -333,14 +417,14 @@ namespace BookNest.DataAccess.Migrations
                             Price100 = 275000.0,
                             Price50 = 290000.0,
                             Title = "Abaddon's Gate",
-                            Updated = new DateTime(2024, 1, 14, 19, 16, 25, 531, DateTimeKind.Local).AddTicks(2043)
+                            Updated = new DateTime(2025, 12, 11, 15, 41, 8, 807, DateTimeKind.Local).AddTicks(9720)
                         },
                         new
                         {
-                            Id = new Guid("6139cda9-a727-4127-a227-a56ce559c5af"),
+                            Id = new Guid("79a89f86-f4c8-4a80-980e-34f69b05e108"),
                             Author = "Corey, James S. A.",
-                            CategoryId = new Guid("b724b42e-81ca-4c9b-b4ed-1d871e6b5eee"),
-                            Created = new DateTime(2024, 1, 14, 19, 16, 25, 531, DateTimeKind.Local).AddTicks(2052),
+                            CategoryId = new Guid("08366134-aa61-4b97-8f9b-1aa17d66b242"),
+                            Created = new DateTime(2025, 12, 11, 15, 41, 8, 807, DateTimeKind.Local).AddTicks(9723),
                             Description = "<p>The gates have opened the way to thousands of habitable planets, and the land rush has begun. Settlers stream out from humanity's home planets in a vast, poorly controlled flood, landing on a new world. Among them, the Rocinante, haunted by the vast, posthuman network of the protomolecule as they investigate what destroyed the great intergalactic society that built the gates and the protomolecule.<br><br>But Holden and his crew must also contend with the growing tensions between the settlers and the company which owns the official claim to the planet. Both sides will stop at nothing to defend what's theirs, but soon a terrible disease strikes and only Holden - with help from the ghostly Detective Miller - can find the cure.</p>",
                             ISBN = "978-0-316-21762-0",
                             ImageUrl = "\\images\\product\\CibolaBurn.jpg",
@@ -349,14 +433,14 @@ namespace BookNest.DataAccess.Migrations
                             Price100 = 240000.0,
                             Price50 = 250000.0,
                             Title = "Cibola Burn",
-                            Updated = new DateTime(2024, 1, 14, 19, 16, 25, 531, DateTimeKind.Local).AddTicks(2053)
+                            Updated = new DateTime(2025, 12, 11, 15, 41, 8, 807, DateTimeKind.Local).AddTicks(9724)
                         },
                         new
                         {
-                            Id = new Guid("2c82bfe7-7851-4419-8821-c5602bc1f74e"),
+                            Id = new Guid("5a185130-6a85-4782-8c40-e108fbd46bef"),
                             Author = "Corey, James S. A.",
-                            CategoryId = new Guid("b724b42e-81ca-4c9b-b4ed-1d871e6b5eee"),
-                            Created = new DateTime(2024, 1, 14, 19, 16, 25, 531, DateTimeKind.Local).AddTicks(2058),
+                            CategoryId = new Guid("08366134-aa61-4b97-8f9b-1aa17d66b242"),
+                            Created = new DateTime(2025, 12, 11, 15, 41, 8, 807, DateTimeKind.Local).AddTicks(9727),
                             Description = "<p>The fifth novel in Corey's New York Times bestselling Expanse series--now being produced for television by the SyFy Channel!<br><br>A thousand worlds have opened, and the greatest land rush in human history has begun. As wave after wave of colonists leave, the power structures of the old solar system begin to buckle.<br><br>Ships are disappearing without a trace. Private armies are being secretly formed. The sole remaining protomolecule sample is stolen. Terrorist attacks previously considered impossible bring the inner planets to their knees. The sins of the past are returning to exact a terrible price.<br><br>And as a new human order is struggling to be born in blood and fire, James Holden and the crew of the Rocinante must struggle to survive and get back to the only home they have left.</p>",
                             ISBN = "978-0-316-21758-3",
                             ImageUrl = "\\images\\product\\NemesisGames.jpg",
@@ -365,14 +449,14 @@ namespace BookNest.DataAccess.Migrations
                             Price100 = 260000.0,
                             Price50 = 280000.0,
                             Title = "Nemesis Games",
-                            Updated = new DateTime(2024, 1, 14, 19, 16, 25, 531, DateTimeKind.Local).AddTicks(2058)
+                            Updated = new DateTime(2025, 12, 11, 15, 41, 8, 807, DateTimeKind.Local).AddTicks(9727)
                         },
                         new
                         {
-                            Id = new Guid("77a6acc7-4b50-4f56-b60a-11723f43f68e"),
+                            Id = new Guid("72807004-91e6-4874-9cf0-409864a3bf36"),
                             Author = "Corey, James S. A.",
-                            CategoryId = new Guid("b724b42e-81ca-4c9b-b4ed-1d871e6b5eee"),
-                            Created = new DateTime(2024, 1, 14, 19, 16, 25, 531, DateTimeKind.Local).AddTicks(2063),
+                            CategoryId = new Guid("08366134-aa61-4b97-8f9b-1aa17d66b242"),
+                            Created = new DateTime(2025, 12, 11, 15, 41, 8, 807, DateTimeKind.Local).AddTicks(9734),
                             Description = "<p>A revolution brewing for generations has begun in fire. It will end in blood.</p>\r\n<p>The Free Navy - a violent group of Belters in black-market military ships - has crippled the Earth and begun a campaign of piracy and violence among the outer planets. The colony ships heading for the thousand new worlds on the far side of the alien ring gates are easy prey, and no single navy remains strong enough to protect them.</p>\r\n<p>James Holden and his crew know the strengths and weaknesses of this new force better than anyone. Outnumbered and outgunned, the embattled remnants of the old political powers call on the&nbsp;<em>Rocinante&nbsp;</em>for a desperate mission to reach Medina Station at the heart of the gate network.</p>\r\n<p>But the new alliances are as flawed as the old, and the struggle for power has only just begun. As the chaos grows, an alien mystery deepens. Pirate fleets, mutiny and betrayal may be the least of the&nbsp;<em>Rocinante</em>'s problems. And in the uncanny spaces past the ring gates, the choices of a few damaged and desperate people may determine the fate of more than just humanity.</p>",
                             ISBN = "978-0-316-33474-7",
                             ImageUrl = "\\images\\product\\BabylonsAshes.jpg",
@@ -381,14 +465,14 @@ namespace BookNest.DataAccess.Migrations
                             Price100 = 275000.0,
                             Price50 = 290000.0,
                             Title = "Babylon's Ashes",
-                            Updated = new DateTime(2024, 1, 14, 19, 16, 25, 531, DateTimeKind.Local).AddTicks(2064)
+                            Updated = new DateTime(2025, 12, 11, 15, 41, 8, 807, DateTimeKind.Local).AddTicks(9735)
                         },
                         new
                         {
-                            Id = new Guid("ca4d0993-58c6-4901-893f-4258099cee40"),
+                            Id = new Guid("29bab671-2efd-4068-9cdd-2adb8e7a4618"),
                             Author = "Corey, James S. A.",
-                            CategoryId = new Guid("b724b42e-81ca-4c9b-b4ed-1d871e6b5eee"),
-                            Created = new DateTime(2024, 1, 14, 19, 16, 25, 531, DateTimeKind.Local).AddTicks(2069),
+                            CategoryId = new Guid("08366134-aa61-4b97-8f9b-1aa17d66b242"),
+                            Created = new DateTime(2025, 12, 11, 15, 41, 8, 807, DateTimeKind.Local).AddTicks(9853),
                             Description = "<p>In the thousand-sun network of humanity's expansion, new colony worlds are struggling to find their way. Every new planet lives on a knife edge between collapse and wonder, and the crew of the aging gunship Rocinante have their hands more than full keeping the fragile peace.<br><br>In the vast space between Earth and Jupiter, the inner planets and belt have formed a tentative and uncertain alliance still haunted by a history of wars and prejudices. On the lost colony world of Laconia, a hidden enemy has a new vision for all of humanity and the power to enforce it.<br><br>New technologies clash with old as the history of human conflict returns to its ancient patterns of war and subjugation. But human nature is not the only enemy, and the forces being unleashed have their own price. A price that will change the shape of humanity -- and of the Rocinante -- unexpectedly and forever...</p>",
                             ISBN = "978-0-316-33283-5",
                             ImageUrl = "\\images\\product\\PersepolisRising.jpg",
@@ -397,14 +481,14 @@ namespace BookNest.DataAccess.Migrations
                             Price100 = 260000.0,
                             Price50 = 280000.0,
                             Title = "Persepolis Rising	",
-                            Updated = new DateTime(2024, 1, 14, 19, 16, 25, 531, DateTimeKind.Local).AddTicks(2069)
+                            Updated = new DateTime(2025, 12, 11, 15, 41, 8, 807, DateTimeKind.Local).AddTicks(9853)
                         },
                         new
                         {
-                            Id = new Guid("62785823-8299-4664-aae7-9dbcca740e53"),
+                            Id = new Guid("46deb5b7-7ebc-4f20-8299-f2f5f637ed41"),
                             Author = "Corey, James S. A.",
-                            CategoryId = new Guid("b724b42e-81ca-4c9b-b4ed-1d871e6b5eee"),
-                            Created = new DateTime(2024, 1, 14, 19, 16, 25, 531, DateTimeKind.Local).AddTicks(2074),
+                            CategoryId = new Guid("08366134-aa61-4b97-8f9b-1aa17d66b242"),
+                            Created = new DateTime(2025, 12, 11, 15, 41, 8, 807, DateTimeKind.Local).AddTicks(9857),
                             Description = "<p>Thirteen hundred gates have opened to solar systems around the galaxy. But as humanity builds its interstellar empire in the alien ruins, the mysteries and threats grow deeper.<br><br>In the dead systems where gates lead to stranger things than alien planets, Elvi Okoye begins a desperate search to discover the nature of a genocide that happened before the first human beings existed, and to find weapons to fight a war against forces at the edge of the imaginable. But the price of that knowledge may be higher than she can pay.<br><br>At the heart of the empire, Teresa Duarte prepares to take on the burden of her father's godlike ambition. The sociopathic scientist Paolo Cort&aacute;zar and the Mephistophelian prisoner James Holden are only two of the dangers in a palace thick with intrigue, but Teresa has a mind of her own and secrets even her father the emperor doesn't guess.<br><br>And throughout the wide human empire, the scattered crew of the Rocinante fights a brave rear-guard action against Duarte's authoritarian regime. Memory of the old order falls away, and a future under Laconia's eternal rule -- and with it, a battle that humanity can only lose - seems more and more certain. Because against the terrors that lie between worlds, courage and ambition will not be enough...</p>",
                             ISBN = "978-0-316-33286-6",
                             ImageUrl = "\\images\\product\\TiamatsWrath.jpg",
@@ -413,14 +497,14 @@ namespace BookNest.DataAccess.Migrations
                             Price100 = 275000.0,
                             Price50 = 290000.0,
                             Title = "Tiamat's Wrath",
-                            Updated = new DateTime(2024, 1, 14, 19, 16, 25, 531, DateTimeKind.Local).AddTicks(2075)
+                            Updated = new DateTime(2025, 12, 11, 15, 41, 8, 807, DateTimeKind.Local).AddTicks(9858)
                         },
                         new
                         {
-                            Id = new Guid("f6e9d8b5-11ba-4a47-b7f3-e485b13efab9"),
+                            Id = new Guid("56ebfa27-972b-49a2-816a-2b4a2f40ad40"),
                             Author = "Corey, James S. A.",
-                            CategoryId = new Guid("b724b42e-81ca-4c9b-b4ed-1d871e6b5eee"),
-                            Created = new DateTime(2024, 1, 14, 19, 16, 25, 531, DateTimeKind.Local).AddTicks(2079),
+                            CategoryId = new Guid("08366134-aa61-4b97-8f9b-1aa17d66b242"),
+                            Created = new DateTime(2025, 12, 11, 15, 41, 8, 807, DateTimeKind.Local).AddTicks(9861),
                             Description = "<p>The Laconian Empire has fallen, setting the thirteen hundred solar systems free from the rule of Winston Duarte. But the ancient enemy that killed the gate builders is awake, and the war against our universe has begun again.<br><br>In the dead system of Adro, Elvi Okoye leads a desperate scientific mission to understand what the gate builders were and what destroyed them, even if it means compromising herself and the half-alien children who bear the weight of her investigation. Through the wide-flung systems of humanity, Colonel Aliana Tanaka hunts for Duarte&rsquo;s missing daughter. . . and the shattered emperor himself. And on the Rocinante, James Holden and his crew struggle to build a future for humanity out of the shards and ruins of all that has come before.<br><br>As nearly unimaginable forces prepare to annihilate all human life, Holden and a group of unlikely allies discover a last, desperate chance to unite all of humanity, with the promise of a vast galactic civilization free from wars, factions, lies, and secrets if they win.<br><br>But the price of victory may be worse than the cost of defeat.</p>",
                             ISBN = "978-0-316-33291-0",
                             ImageUrl = "\\images\\product\\LeviathanFalls.jpg",
@@ -429,7 +513,7 @@ namespace BookNest.DataAccess.Migrations
                             Price100 = 300000.0,
                             Price50 = 310000.0,
                             Title = "Leviathan Falls",
-                            Updated = new DateTime(2024, 1, 14, 19, 16, 25, 531, DateTimeKind.Local).AddTicks(2080)
+                            Updated = new DateTime(2025, 12, 11, 15, 41, 8, 807, DateTimeKind.Local).AddTicks(9861)
                         });
                 });
 
@@ -449,7 +533,7 @@ namespace BookNest.DataAccess.Migrations
                     b.Property<DateTime?>("Created")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("ProductId")
+                    b.Property<Guid>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime?>("Updated")
@@ -606,6 +690,36 @@ namespace BookNest.DataAccess.Migrations
                     b.Navigation("Company");
                 });
 
+            modelBuilder.Entity("BookNest.Models.Order", b =>
+                {
+                    b.HasOne("BookNest.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("BookNest.Models.OrderItem", b =>
+                {
+                    b.HasOne("BookNest.Models.Order", "Order")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BookNest.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("BookNest.Models.Product", b =>
                 {
                     b.HasOne("BookNest.Models.Category", "Category")
@@ -625,7 +739,9 @@ namespace BookNest.DataAccess.Migrations
 
                     b.HasOne("BookNest.Models.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductId");
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("ApplicationUser");
 
@@ -681,6 +797,11 @@ namespace BookNest.DataAccess.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("BookNest.Models.Order", b =>
+                {
+                    b.Navigation("OrderItems");
                 });
 #pragma warning restore 612, 618
         }

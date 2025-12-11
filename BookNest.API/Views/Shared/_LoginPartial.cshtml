@@ -24,6 +24,15 @@
                     </a>
                 </li>
 
+                <li>
+                    <a class="dropdown-item"
+                       asp-area="Customer"
+                       asp-controller="Order"
+                       asp-action="History">
+                        <i class="bi bi-receipt-cutoff me-2"></i>My Orders
+                    </a>
+                </li>
+
                 <!-- Admin panel section -->
                 @if (User.IsInRole(BookNest.Utility.StaticDetails.ROLE_ADMIN))
                 {

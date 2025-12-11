@@ -16,8 +16,10 @@ namespace BookNest.DataAccess.Data
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<Company> Companies { get; set; }
         public DbSet<ShoppingCart> ShoppingCarts { get; set; }
+		public DbSet<Order> Orders { get; set; }
+		public DbSet<OrderItem> OrderItems { get; set; }
 
-        public override int SaveChanges()
+		public override int SaveChanges()
         {
             var entities = ChangeTracker.Entries().Where(x => x.Entity is BaseModel && (x.State == EntityState.Added || x.State == EntityState.Modified));
 
@@ -204,6 +206,14 @@ namespace BookNest.DataAccess.Data
                     ImageUrl = "\\images\\product\\LeviathanFalls.jpg"
                 }
                 );
-        }
+
+			modelBuilder.Entity<Order>()
+	            .Property(o => o.TotalAmount)
+	            .HasPrecision(18, 2);
+
+			modelBuilder.Entity<OrderItem>()
+				.Property(oi => oi.UnitPrice)
+				.HasPrecision(18, 2);
+		}
     }
 }

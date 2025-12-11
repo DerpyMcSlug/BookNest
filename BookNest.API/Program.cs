@@ -28,6 +28,12 @@ builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
 builder.Services.AddScoped<IShoppingCartRepository, ShoppingCartRepository>();
 builder.Services.AddScoped<IApplicationUserRepository, ApplicationUserRepository>();
 builder.Services.AddScoped<IEmailSender, EmailSender>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<IOrderItemRepository, OrderItemRepository>();
+builder.Services.AddAntiforgery(options =>
+{
+	options.HeaderName = "RequestVerificationToken";
+});
 
 var app = builder.Build();
 

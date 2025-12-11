@@ -6,7 +6,7 @@ namespace BookNest.Models
 {
     public class ShoppingCart : BaseModel
     {
-        public Guid? ProductId { get; set; }
+        public Guid ProductId { get; set; }
         [ForeignKey("ProductId")]
         [ValidateNever]
         public Product Product { get; set; }

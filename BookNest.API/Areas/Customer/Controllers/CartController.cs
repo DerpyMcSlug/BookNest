@@ -1,7 +1,10 @@
 ﻿using System.Security.Claims;
+using BookNest.DataAccess.Data;
+using BookNest.DataAccess.Repository;
 using BookNest.DataAccess.Repository.IRepository;
 using BookNest.Models;
 using BookNest.Models.ViewModels;
+using BookNest.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -17,7 +20,7 @@ namespace BookNest.Areas.Customer.Controllers
 		private readonly IOrderRepository _orderRepo;
 		private readonly IOrderItemRepository _orderItemRepo;
 		private readonly UserManager<ApplicationUser> _userManager;
-
+		private readonly VnPayService _vnPayService;
 
 		private ShoppingCartViewModel _shoppingCartVM { get; set; }
 
@@ -25,12 +28,14 @@ namespace BookNest.Areas.Customer.Controllers
 			IShoppingCartRepository shoppingCartRepo,
 			IOrderRepository orderRepo,
 			IOrderItemRepository orderItemRepo,
-		    UserManager<ApplicationUser> userManager)
+		    UserManager<ApplicationUser> userManager,
+			VnPayService vnPayService)
 		{
             _shoppingCartRepo = shoppingCartRepo;
 			_orderRepo = orderRepo;
 			_orderItemRepo = orderItemRepo;
 			_userManager = userManager;
+			_vnPayService = vnPayService;
 		}
 
 		public IActionResult Index()
@@ -90,69 +95,78 @@ namespace BookNest.Areas.Customer.Controllers
 		[ValidateAntiForgeryToken]
 		public IActionResult SummaryPOST(ShoppingCartViewModel model)
 		{
-			var claimsIdentity = (ClaimsIdentity)User.Identity;
-			var userId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
+			var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+			if (userId == null)
+				return Json(new { success = false, message = "User not logged in" });
 
 			var cartItems = _shoppingCartRepo.GetAll(
 				u => u.ApplicationUserId == userId,
 				includeProperties: "Product"
 			).ToList();
 
-			if (cartItems.Count == 0)
+			if (!cartItems.Any())
 			{
-				return RedirectToAction("Index");
+				return Json(new { success = false, message = "Cart is empty" });
 			}
 
-			// FIX: Calculate unit prices (server-side!)
+			// Compute unit prices server-side (secure)
 			foreach (var item in cartItems)
 			{
-				item.Price = item.Count <= 50
-					? item.Product.Price
-					: item.Count <= 100
-						? item.Product.Price50
-						: item.Product.Price100;
+				item.Price = item.Count <= 50 ? item.Product.Price :
+							 item.Count <= 100 ? item.Product.Price50 :
+							 item.Product.Price100;
 			}
 
+			// Create order
 			var order = new Order
 			{
+				Id = Guid.NewGuid(),
 				UserId = userId,
 				OrderDate = DateTime.UtcNow,
-				Status = "Pending",
 				PaymentMethod = model.PaymentMethod,
-				TotalAmount = cartItems.Sum(i => (decimal)i.Price * i.Count),
+				Status = "Pending",
 
 				Name = model.Name,
 				Phone = model.Phone,
 				StreetAddress = model.StreetAddress,
 				City = model.City,
 				State = model.State,
-				PostalCode = model.PostalCode
+				PostalCode = model.PostalCode,
+
+				TotalAmount = cartItems.Sum(i => (decimal)i.Price * i.Count)
 			};
 
 			_orderRepo.Add(order);
 			_orderRepo.Save();
 
+			// Add order items
 			foreach (var item in cartItems)
 			{
 				_orderItemRepo.Add(new OrderItem
 				{
+					Id = Guid.NewGuid(),
 					OrderId = order.Id,
 					ProductId = item.ProductId,
-					UnitPrice = (decimal)item.Price,
-					Quantity = item.Count
+					Quantity = item.Count,
+					UnitPrice = (decimal)item.Price
 				});
 			}
 
 			_orderItemRepo.Save();
 
+			// Clear cart
 			_shoppingCartRepo.RemoveRange(cartItems);
 			_shoppingCartRepo.Save();
 
+			// VNPay handling
 			if (model.PaymentMethod == "VNPay")
 			{
-				return Json(new { success = true, redirectUrl = "/MockVNPay/Pay?orderId=" + order.Id });
+				string paymentUrl = _vnPayService.CreateVnPayPayment(order);
+				return Json(new { success = true, redirectUrl = paymentUrl });
 			}
 
+			// Cash on Delivery
 			return Json(new { success = true, orderId = order.Id });
 		}
 
@@ -209,5 +223,32 @@ namespace BookNest.Areas.Customer.Controllers
                 }
             }
         }
-    }
+		public IActionResult PaymentCallbackVnpay(string orderId)
+		{
+			Guid id = Guid.Parse(orderId);
+
+			var order = _orderRepo.Get(o => o.Id == id);
+
+			if (order == null)
+				return Content("Order not found");
+
+			// Check if VNPay says success
+			string vnp_ResponseCode = HttpContext.Request.Query["vnp_ResponseCode"];
+			string vnp_TransactionStatus = HttpContext.Request.Query["vnp_TransactionStatus"];
+
+			if (vnp_ResponseCode == "00" && vnp_TransactionStatus == "00")
+			{
+				order.Status = "Paid";
+			}
+			else
+			{
+				order.Status = "Payment Failed";
+			}
+
+			_orderRepo.Update(order);
+			_orderRepo.Save();
+
+			return RedirectToAction("Details", "Order", new { id = order.Id, area = "Customer" });
+		}
+	}
 }

@@ -1,0 +1,37 @@
+﻿@page
+@model BookNest.Areas.Identity.Pages.Account.Enter2FAModel
+@{
+    ViewData["Title"] = "Xác thực 2FA";
+}
+
+<h2 class="text-center">@ViewData["Title"]</h2>
+
+@if (!string.IsNullOrEmpty(Model.Email2FA))
+{
+    <p class="text-center text-success">A code was sent to: <strong>@Model.Email2FA</strong></p>
+}
+
+@if (TempData["StatusMessage"] != null)
+{
+    <div class="alert alert-info">@TempData["StatusMessage"]</div>
+}
+
+<form method="post" class="mt-4">
+    <div class="form-group mb-3">
+        <label>Enter the 6-digit code</label>
+        <input asp-for="Input.Code" class="form-control" maxlength="6" />
+        <span asp-validation-for="Input.Code" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">Confirm</button>
+</form>
+
+<form method="post" asp-page-handler="Resend" class="mt-2">
+    <button type="submit" class="btn btn-link">Resend code</button>
+</form>
+
+<a asp-page="/Account/Login" class="d-block mt-3">Back to login</a>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

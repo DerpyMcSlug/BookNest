@@ -2,8 +2,8 @@ using BookNest.DataAccess.Data;
 using BookNest.DataAccess.Repository;
 using BookNest.DataAccess.Repository.IRepository;
 using BookNest.Models;
+using BookNest.Services;
 using BookNest.Utility;
-using BookShop.Utility;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
@@ -34,6 +34,8 @@ builder.Services.AddAntiforgery(options =>
 {
 	options.HeaderName = "RequestVerificationToken";
 });
+builder.Services.AddScoped<VnPayService>();
+builder.Services.AddScoped<ITwoFactorService, TwoFactorService>();
 
 var app = builder.Build();
 
@@ -55,5 +57,4 @@ app.MapRazorPages();
 app.MapControllerRoute(
     name: "default",
     pattern: "{area=Customer}/{controller=Home}/{action=Index}/{id?}");
-
 app.Run();

@@ -15,7 +15,10 @@ namespace BookNest.Models
         public string? State { get; set; }
         public string? PostalCode { get; set; }
 
-        public Guid? CompanyId { get; set; }
+		public DateTime? LastOtpSentAt { get; set; }
+		public string? TwoFactorCode { get; set; }
+		public DateTime? TwoFactorExpiry { get; set; }
+		public Guid? CompanyId { get; set; }
         [ForeignKey("CompanyId")]
         [ValidateNever]
         public Company Company { get; set; }

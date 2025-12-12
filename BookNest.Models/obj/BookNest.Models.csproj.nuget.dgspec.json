@@ -1,17 +1,89 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Downloads\\Finale\\BookNest\\BookNest.Models\\BookNest.Models.csproj": {}
+    "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.Models\\BookNest.Models.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Downloads\\Finale\\BookNest\\BookNest.Models\\BookNest.Models.csproj": {
+    "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.Models\\BookNest.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest\\BookNest.Models\\BookNest.Models.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.Models\\BookNest.Models.csproj",
         "projectName": "BookNest.Models",
-        "projectPath": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest\\BookNest.Models\\BookNest.Models.csproj",
+        "projectPath": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.Models\\BookNest.Models.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest\\BookNest.Models\\obj\\",
+        "outputPath": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.Utility\\BookNest.Utility.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.Utility\\BookNest.Utility.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.307/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.Utility\\BookNest.Utility.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.Utility\\BookNest.Utility.csproj",
+        "projectName": "BookNest.Utility",
+        "projectPath": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.Utility\\BookNest.Utility.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.Utility\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -49,6 +121,16 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "SendGrid": {
+              "target": "Package",
+              "version": "[9.29.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -61,9 +143,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

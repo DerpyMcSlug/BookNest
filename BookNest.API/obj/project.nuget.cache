@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bEw/QSDurNU=",
+  "dgSpecHash": "SCYJrBwvqeI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest\\BookNest.API\\BookNest.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\BookNest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\azure.core\\1.49.0\\azure.core.1.49.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\azure.identity\\1.17.0\\azure.identity.1.17.0.nupkg.sha512",

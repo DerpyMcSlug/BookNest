@@ -34,8 +34,11 @@ builder.Services.AddAntiforgery(options =>
 {
 	options.HeaderName = "RequestVerificationToken";
 });
-builder.Services.AddScoped<VnPayService>();
+//builder.Services.AddScoped<VnPayService>();
 builder.Services.AddScoped<ITwoFactorService, TwoFactorService>();
+builder.Services.AddScoped<IWishlistRepository, WishlistRepository>();
+builder.Services.AddScoped<IAuditLogRepository, AuditLogRepository>();
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
 var app = builder.Build();
 

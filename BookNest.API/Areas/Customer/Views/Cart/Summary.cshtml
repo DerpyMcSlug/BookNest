@@ -1,6 +1,10 @@
 ﻿@model BookNest.Models.ViewModels.ShoppingCartViewModel
 
-<form id="checkoutForm" method="post">
+<form id="checkoutForm"
+	  asp-area="Customer"
+	  asp-controller="Checkout"
+	  asp-action="PlaceOrder"
+	  method="post">
 	@Html.AntiForgeryToken()
 	<br />
 	<div class="container">
@@ -184,7 +188,7 @@
 		</div>
 	</div>
 </form>
-
+@* 
 <div class="modal fade" id="confirmationModal" tabindex="-1" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content p-3">
@@ -212,39 +216,11 @@
 
 		</div>
 	</div>
-</div>
+</div> *@
 
 @section Scripts {
 	<script>
-		$("#checkoutForm").submit(function (e) {
-			e.preventDefault();
 
-			$.ajax({
-				url: '@Url.Action("SummaryPOST", "Cart", new { area = "Customer" })',
-				type: "POST",
-				data: $(this).serialize(),
-				headers: {
-					"RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val()
-				},
-				success: function (response) {
-
-					if (response.success) {
-
-						if (response.redirectUrl) {
-							window.location.href = response.redirectUrl;
-							return;
-						}
-
-						$("#orderIdSpan").text(response.orderId);
-						var modal = new bootstrap.Modal(document.getElementById("confirmationModal"));
-						modal.show();
-					}
-				},
-				error: function (xhr) {
-					console.log("AJAX ERROR:", xhr.responseText);
-				}
-			});
-		});
 
 			 (function () {
 			const container = document.getElementById('orderSummaryScroll');

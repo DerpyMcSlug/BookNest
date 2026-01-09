@@ -1,27 +1,20 @@
 ﻿@model List<Category>
 
-<div class="container">
-    <div class="row pt-4 pb-5">
-        <div class="col-6"><h2 class="text-primary">Category List</h2></div>
-        <div class="col-6 text-end">
-            <button class="btn btn-primary" onclick="openAdminModal('/admin/category/upsert')">
-                <i class="bi bi-plus-circle"></i> Create Category
-            </button>
-        </div>
-    </div>
+<div class="container admin-header">
+    <h2>Category List</h2>
+
+    <button class="btn btn-primary shadow-soft"
+            onclick="openAdminModal('/admin/category/upsert')">
+        <i class="bi bi-plus-circle"></i> Create Category
+    </button>
 </div>
-<table id="tableCategory" class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Category Name</th>
-            <th>Display Order</th>
-            <th></th>
-        </tr>
-    </thead>
+
+<table id="tableCategory" class="table table-bordered table-hover align-middle table-striped">
+     <thead>
+          <tr>
+               <th>Category Name</th>
+               <th>Display Order</th>
+               <th></th>
+          </tr>
+      </thead>
 </table>
-
-<div id="modalContainer"></div>
-
-@section Scripts {
-    <script src="~/js/category.js"></script>
-}

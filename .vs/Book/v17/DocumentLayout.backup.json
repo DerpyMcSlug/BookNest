@@ -3,84 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|c:\\users\\admin\\downloads\\finale\\booknest-main\\booknest.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|solutionrelative:booknest.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|c:\\users\\admin\\downloads\\finale\\booknest-main\\booknest.api\\wwwroot\\css\\components.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|solutionrelative:booknest.api\\wwwroot\\css\\components.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|c:\\users\\admin\\downloads\\finale\\booknest-main\\booknest.api\\areas\\identity\\pages\\account\\manage\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|solutionrelative:booknest.api\\areas\\identity\\pages\\account\\manage\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{04C0C2FB-FDEA-E6EF-FFF5-5E079383E85D}|BookNest.DataAccess\\BookNest.DataAccess.csproj|c:\\users\\admin\\downloads\\finale\\booknest-main\\booknest.dataaccess\\data\\seedadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{04C0C2FB-FDEA-E6EF-FFF5-5E079383E85D}|BookNest.DataAccess\\BookNest.DataAccess.csproj|solutionrelative:booknest.dataaccess\\data\\seedadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B297176B-0DEF-98DB-1DB4-6C7D8AD9DFC6}|BookNest.Models\\BookNest.Models.csproj|c:\\users\\admin\\downloads\\finale\\booknest-main\\booknest.models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B297176B-0DEF-98DB-1DB4-6C7D8AD9DFC6}|BookNest.Models\\BookNest.Models.csproj|solutionrelative:booknest.models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|c:\\users\\admin\\downloads\\finale\\booknest-main\\booknest.api\\areas\\customer\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|solutionrelative:booknest.api\\areas\\customer\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|c:\\users\\admin\\downloads\\finale\\booknest-main\\booknest.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|solutionrelative:booknest.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|c:\\users\\admin\\downloads\\finale\\booknest-main\\booknest.api\\services\\emailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|solutionrelative:booknest.api\\services\\emailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|c:\\users\\admin\\downloads\\finale\\booknest-main\\booknest.api\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|solutionrelative:booknest.api\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|c:\\users\\admin\\downloads\\finale\\booknest-main\\booknest.api\\areas\\customer\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|solutionrelative:booknest.api\\areas\\customer\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|c:\\users\\admin\\downloads\\finale\\booknest-main\\booknest.api\\areas\\identity\\pages\\account\\enter2fa.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|solutionrelative:booknest.api\\areas\\identity\\pages\\account\\enter2fa.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|c:\\users\\admin\\downloads\\finale\\booknest-main\\booknest.api\\areas\\identity\\pages\\account\\enter2fa.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|solutionrelative:booknest.api\\areas\\identity\\pages\\account\\enter2fa.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|c:\\users\\admin\\downloads\\finale\\booknest-main\\booknest.api\\services\\twofactorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|solutionrelative:booknest.api\\services\\twofactorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|c:\\users\\admin\\downloads\\finale\\booknest-main\\booknest.api\\areas\\identity\\pages\\account\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|solutionrelative:booknest.api\\areas\\identity\\pages\\account\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|c:\\users\\admin\\downloads\\finale\\booknest-main\\booknest.api\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|solutionrelative:booknest.api\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|c:\\users\\admin\\downloads\\finale\\booknest-main\\booknest.api\\areas\\identity\\pages\\account\\verifycode.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|solutionrelative:booknest.api\\areas\\identity\\pages\\account\\verifycode.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|c:\\users\\admin\\downloads\\finale\\booknest-main\\booknest.api\\services\\itwofactorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|solutionrelative:booknest.api\\services\\itwofactorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|c:\\users\\admin\\downloads\\finale\\booknest-main\\booknest.api\\areas\\identity\\pages\\account\\verifycode.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|solutionrelative:booknest.api\\areas\\identity\\pages\\account\\verifycode.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|c:\\users\\admin\\downloads\\finale\\booknest-main\\booknest.api\\services\\vnpayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|solutionrelative:booknest.api\\services\\vnpayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{04C0C2FB-FDEA-E6EF-FFF5-5E079383E85D}|BookNest.DataAccess\\BookNest.DataAccess.csproj|c:\\users\\admin\\downloads\\finale\\booknest-main\\booknest.dataaccess\\repository\\irepository\\icategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{04C0C2FB-FDEA-E6EF-FFF5-5E079383E85D}|BookNest.DataAccess\\BookNest.DataAccess.csproj|solutionrelative:booknest.dataaccess\\repository\\irepository\\icategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B297176B-0DEF-98DB-1DB4-6C7D8AD9DFC6}|BookNest.Models\\BookNest.Models.csproj|c:\\users\\admin\\downloads\\finale\\booknest-main\\booknest.models\\viewmodels\\orderdetailsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B297176B-0DEF-98DB-1DB4-6C7D8AD9DFC6}|BookNest.Models\\BookNest.Models.csproj|solutionrelative:booknest.models\\viewmodels\\orderdetailsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|c:\\users\\admin\\downloads\\finale\\booknest-main\\booknest.api\\areas\\admin\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|solutionrelative:booknest.api\\areas\\admin\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|c:\\users\\admin\\downloads\\finale\\booknest-main\\booknest.api\\services\\ivnpayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|solutionrelative:booknest.api\\services\\ivnpayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|c:\\users\\admin\\downloads\\finale\\booknest-main\\booknest.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{75E18E96-092B-2B00-4810-91F6C9FE69F8}|BookNest.API\\BookNest.csproj|solutionrelative:booknest.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -90,21 +30,33 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Program.cs",
               "RelativeDocumentMoniker": "BookNest.API\\Program.cs",
               "ToolTip": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Program.cs",
               "RelativeToolTip": "BookNest.API\\Program.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAADwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-11T10:08:34.295Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "BookNest.API\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "BookNest.API\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAALIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-16T03:03:14.506Z",
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -123,232 +75,46 @@
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SeedAdmin.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.DataAccess\\Data\\SeedAdmin.cs",
-              "RelativeDocumentMoniker": "BookNest.DataAccess\\Data\\SeedAdmin.cs",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.DataAccess\\Data\\SeedAdmin.cs",
-              "RelativeToolTip": "BookNest.DataAccess\\Data\\SeedAdmin.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-12T04:57:01.578Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Areas\\Customer\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "BookNest.API\\Areas\\Customer\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Areas\\Customer\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "BookNest.API\\Areas\\Customer\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-12T04:27:04.938Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Enter2FA.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Areas\\Identity\\Pages\\Account\\Enter2FA.cshtml.cs",
-              "RelativeDocumentMoniker": "BookNest.API\\Areas\\Identity\\Pages\\Account\\Enter2FA.cshtml.cs",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Areas\\Identity\\Pages\\Account\\Enter2FA.cshtml.cs",
-              "RelativeToolTip": "BookNest.API\\Areas\\Identity\\Pages\\Account\\Enter2FA.cshtml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-12T04:25:29.721Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Enter2FA.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Areas\\Identity\\Pages\\Account\\Enter2FA.cshtml",
-              "RelativeDocumentMoniker": "BookNest.API\\Areas\\Identity\\Pages\\Account\\Enter2FA.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Areas\\Identity\\Pages\\Account\\Enter2FA.cshtml",
-              "RelativeToolTip": "BookNest.API\\Areas\\Identity\\Pages\\Account\\Enter2FA.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-12T04:25:17.386Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "VerifyCode.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Areas\\Identity\\Pages\\Account\\VerifyCode.cshtml.cs",
-              "RelativeDocumentMoniker": "BookNest.API\\Areas\\Identity\\Pages\\Account\\VerifyCode.cshtml.cs",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Areas\\Identity\\Pages\\Account\\VerifyCode.cshtml.cs",
-              "RelativeToolTip": "BookNest.API\\Areas\\Identity\\Pages\\Account\\VerifyCode.cshtml.cs",
-              "ViewState": "AgIAAFAAAAAAAAAAAAAMwFoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-12T03:45:36.817Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "VerifyCode.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Areas\\Identity\\Pages\\Account\\VerifyCode.cshtml",
-              "RelativeDocumentMoniker": "BookNest.API\\Areas\\Identity\\Pages\\Account\\VerifyCode.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Areas\\Identity\\Pages\\Account\\VerifyCode.cshtml",
-              "RelativeToolTip": "BookNest.API\\Areas\\Identity\\Pages\\Account\\VerifyCode.cshtml",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAgwCQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-12T03:45:08.885Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "VnPayService.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Services\\VnPayService.cs",
-              "RelativeDocumentMoniker": "BookNest.API\\Services\\VnPayService.cs",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Services\\VnPayService.cs",
-              "RelativeToolTip": "BookNest.API\\Services\\VnPayService.cs",
-              "ViewState": "AgIAAEwAAAAAAAAAAAAkwE4AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T13:11:29.011Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "OrderDetailsViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.Models\\ViewModels\\OrderDetailsViewModel.cs",
-              "RelativeDocumentMoniker": "BookNest.Models\\ViewModels\\OrderDetailsViewModel.cs",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.Models\\ViewModels\\OrderDetailsViewModel.cs",
-              "RelativeToolTip": "BookNest.Models\\ViewModels\\OrderDetailsViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T12:18:24.551Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\appsettings.json",
-              "RelativeDocumentMoniker": "BookNest.API\\appsettings.json",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\appsettings.json",
-              "RelativeToolTip": "BookNest.API\\appsettings.json",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAACAAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-12-11T11:09:54.109Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Login.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
-              "RelativeDocumentMoniker": "BookNest.API\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
-              "RelativeToolTip": "BookNest.API\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T11:07:39.563Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
-              "RelativeDocumentMoniker": "BookNest.API\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
-              "RelativeToolTip": "BookNest.API\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-11T11:06:31.419Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "ProductController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Areas\\Admin\\Controllers\\ProductController.cs",
-              "RelativeDocumentMoniker": "BookNest.API\\Areas\\Admin\\Controllers\\ProductController.cs",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Areas\\Admin\\Controllers\\ProductController.cs",
-              "RelativeToolTip": "BookNest.API\\Areas\\Admin\\Controllers\\ProductController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T10:44:07.794Z"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
-              "RelativeDocumentMoniker": "BookNest.API\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
-              "RelativeToolTip": "BookNest.API\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Areas\\Customer\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "BookNest.API\\Areas\\Customer\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Areas\\Customer\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "BookNest.API\\Areas\\Customer\\Views\\Home\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-11T10:43:24.684Z"
+              "WhenOpened": "2025-12-30T15:35:36.594Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ApplicationUser.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.Models\\ApplicationUser.cs",
-              "RelativeDocumentMoniker": "BookNest.Models\\ApplicationUser.cs",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.Models\\ApplicationUser.cs",
-              "RelativeToolTip": "BookNest.Models\\ApplicationUser.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T10:22:10.078Z"
+              "DocumentIndex": 0,
+              "Title": "components.css",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\wwwroot\\css\\components.css",
+              "RelativeDocumentMoniker": "BookNest.API\\wwwroot\\css\\components.css",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\wwwroot\\css\\components.css",
+              "RelativeToolTip": "BookNest.API\\wwwroot\\css\\components.css",
+              "ViewState": "AgIAAPIBAAAAAAAAAAAAwAsCAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-12-30T15:33:54.917Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "ICategoryRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.DataAccess\\Repository\\IRepository\\ICategoryRepository.cs",
-              "RelativeDocumentMoniker": "BookNest.DataAccess\\Repository\\IRepository\\ICategoryRepository.cs",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.DataAccess\\Repository\\IRepository\\ICategoryRepository.cs",
-              "RelativeToolTip": "BookNest.DataAccess\\Repository\\IRepository\\ICategoryRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T10:05:23.223Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "TwoFactorService.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Services\\TwoFactorService.cs",
-              "RelativeDocumentMoniker": "BookNest.API\\Services\\TwoFactorService.cs",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Services\\TwoFactorService.cs",
-              "RelativeToolTip": "BookNest.API\\Services\\TwoFactorService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEUAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T09:56:05.707Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "IVnPayService.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Services\\IVnPayService.cs",
-              "RelativeDocumentMoniker": "BookNest.API\\Services\\IVnPayService.cs",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Services\\IVnPayService.cs",
-              "RelativeToolTip": "BookNest.API\\Services\\IVnPayService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T09:56:02.206Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ITwoFactorService.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Services\\ITwoFactorService.cs",
-              "RelativeDocumentMoniker": "BookNest.API\\Services\\ITwoFactorService.cs",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Services\\ITwoFactorService.cs",
-              "RelativeToolTip": "BookNest.API\\Services\\ITwoFactorService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T09:55:50.518Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "EmailSender.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Services\\EmailSender.cs",
-              "RelativeDocumentMoniker": "BookNest.API\\Services\\EmailSender.cs",
-              "ToolTip": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\Services\\EmailSender.cs",
-              "RelativeToolTip": "BookNest.API\\Services\\EmailSender.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T09:55:41.425Z"
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\appsettings.json",
+              "RelativeDocumentMoniker": "BookNest.API\\appsettings.json",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\Finale\\BookNest-main\\BookNest.API\\appsettings.json",
+              "RelativeToolTip": "BookNest.API\\appsettings.json",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAgwBkAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-19T04:52:01.346Z"
             },
             {
               "$type": "Bookmark",

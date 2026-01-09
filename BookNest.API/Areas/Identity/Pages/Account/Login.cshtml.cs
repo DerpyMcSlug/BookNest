@@ -111,65 +111,46 @@ namespace BookNest.Areas.Identity.Pages.Account
             ReturnUrl = returnUrl;
         }
 
-        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
-        {
-            returnUrl ??= Url.Content("~/");
+		public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+		{
+			returnUrl ??= Url.Content("~/");
 
-            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+			ExternalLogins = (await _signInManager
+				.GetExternalAuthenticationSchemesAsync())
+				.ToList();
 
-			// --- reCAPTCHA verification ---
-			var captchaResponse = Request.Form["g-recaptcha-response"];
-			var secret = "6LdMkSAsAAAAAL0GarewhefSM1SDLhdGoiwG-8Ft"; 
+			if (!ModelState.IsValid)
+				return Page();
 
-			using var http = new HttpClient();
-			var captchaVerify = await http.PostAsync(
-				$"https://www.google.com/recaptcha/api/siteverify?secret={secret}&response={captchaResponse}",
-				null
-			);
-
-			var captchaResult = await captchaVerify.Content.ReadFromJsonAsync<RecaptchaResult>();
-
-			if (captchaResult == null || !captchaResult.success)
+			var user = await _userManager.FindByEmailAsync(Input.Email);
+			if (user == null ||
+				!await _userManager.CheckPasswordAsync(user, Input.Password))
 			{
-				ModelState.AddModelError(string.Empty, "Captcha verification failed. Please try again.");
+				ModelState.AddModelError(string.Empty, "Invalid login attempt.");
 				return Page();
 			}
 
-			if (ModelState.IsValid)
-            {
-                // This doesn't count login failures towards account lockout
-                // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
-				if (result.Succeeded)
-				{
-					_logger.LogInformation("Password valid. Sending OTP...");
+			// ⏱ OTP trust window
+			var otpWindow = TimeSpan.FromDays(30);
 
-					var user = await _userManager.FindByEmailAsync(Input.Email);
+			// ✅ SKIP OTP
+			if (Input.RememberMe &&
+				user.LastOtpVerifiedAt.HasValue &&
+				DateTime.UtcNow - user.LastOtpVerifiedAt.Value < otpWindow)
+			{
+				await _signInManager.SignInAsync(user, isPersistent: true);
+				return LocalRedirect(returnUrl);
+			}
 
-					// Generate & send OTP
-					await _twoFactorService.GenerateAndSendAsync(user);
+			// ❌ REQUIRE OTP
+			await _twoFactorService.GenerateAndSendAsync(user);
 
-					// Redirect to your OTP verification page
-					return RedirectToPage("./VerifyCode", new { email = Input.Email, returnUrl });
-				}
-				if (result.RequiresTwoFactor)
-                {
-                    return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
-                }
-                if (result.IsLockedOut)
-                {
-                    _logger.LogWarning("User account locked out.");
-                    return RedirectToPage("./Lockout");
-                }
-                else
-                {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                    return Page();
-                }
-            }
-
-            // If we got this far, something failed, redisplay form
-            return Page();
-        }
-    }
+			return RedirectToPage("./VerifyCode", new
+			{
+				email = user.Email,
+				rememberMe = Input.RememberMe,
+				returnUrl
+			});
+		}
+	}
 }

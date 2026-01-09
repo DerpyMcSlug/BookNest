@@ -18,6 +18,8 @@ namespace BookNest.DataAccess.Data
         public DbSet<ShoppingCart> ShoppingCarts { get; set; }
 		public DbSet<Order> Orders { get; set; }
 		public DbSet<OrderItem> OrderItems { get; set; }
+		public DbSet<Wishlist> Wishlists { get; set; }
+        public DbSet<AuditLog> AuditLogs { get; set; }
 
 		public override int SaveChanges()
         {
@@ -206,14 +208,6 @@ namespace BookNest.DataAccess.Data
                     ImageUrl = "\\images\\product\\LeviathanFalls.jpg"
                 }
                 );
-
-			modelBuilder.Entity<Order>()
-	            .Property(o => o.TotalAmount)
-	            .HasPrecision(18, 2);
-
-			modelBuilder.Entity<OrderItem>()
-				.Property(oi => oi.UnitPrice)
-				.HasPrecision(18, 2);
 		}
     }
 }

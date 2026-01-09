@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis;
+using BookNest.Models.DTOs;
 
 namespace BookNest.Areas.Customer.Controllers
 {
@@ -20,7 +21,9 @@ namespace BookNest.Areas.Customer.Controllers
 		private readonly IOrderRepository _orderRepo;
 		private readonly IOrderItemRepository _orderItemRepo;
 		private readonly UserManager<ApplicationUser> _userManager;
-		private readonly VnPayService _vnPayService;
+		//private readonly VnPayService _vnPayService;
+		private readonly IProductRepository _productRepo;
+		private readonly IRepository<AuditLog> _auditRepo;
 
 		private ShoppingCartViewModel _shoppingCartVM { get; set; }
 
@@ -29,13 +32,17 @@ namespace BookNest.Areas.Customer.Controllers
 			IOrderRepository orderRepo,
 			IOrderItemRepository orderItemRepo,
 		    UserManager<ApplicationUser> userManager,
-			VnPayService vnPayService)
+			//VnPayService vnPayService,
+			IProductRepository productRepo,
+			IRepository<AuditLog> auditRepo)
 		{
             _shoppingCartRepo = shoppingCartRepo;
 			_orderRepo = orderRepo;
 			_orderItemRepo = orderItemRepo;
 			_userManager = userManager;
-			_vnPayService = vnPayService;
+			//_vnPayService = vnPayService;
+			_productRepo = productRepo;
+			_auditRepo = auditRepo;
 		}
 
 		public IActionResult Index()
@@ -134,11 +141,23 @@ namespace BookNest.Areas.Customer.Controllers
 				State = model.State,
 				PostalCode = model.PostalCode,
 
-				TotalAmount = cartItems.Sum(i => (decimal)i.Price * i.Count)
+				TotalAmount = cartItems.Sum(i => i.Price * i.Count)
 			};
 
 			_orderRepo.Add(order);
 			_orderRepo.Save();
+
+			_auditRepo.Add(new AuditLog
+			{
+				UserId = userId,
+				ActionType = "ORDER_CREATED",
+				EntityName = "Order",
+				EntityId = order.Id.ToString(),
+				Description = "Order placed by customer",
+				IpAddress = HttpContext.Connection.RemoteIpAddress?.ToString()
+			});
+
+			_auditRepo.Save();
 
 			// Add order items
 			foreach (var item in cartItems)
@@ -149,7 +168,7 @@ namespace BookNest.Areas.Customer.Controllers
 					OrderId = order.Id,
 					ProductId = item.ProductId,
 					Quantity = item.Count,
-					UnitPrice = (decimal)item.Price
+					UnitPrice = item.Price
 				});
 			}
 
@@ -159,14 +178,14 @@ namespace BookNest.Areas.Customer.Controllers
 			_shoppingCartRepo.RemoveRange(cartItems);
 			_shoppingCartRepo.Save();
 
-			// VNPay handling
-			if (model.PaymentMethod == "VNPay")
-			{
-				string paymentUrl = _vnPayService.CreateVnPayPayment(order);
-				return Json(new { success = true, redirectUrl = paymentUrl });
-			}
+			//// VNPay handling
+			//if (model.PaymentMethod == "VNPay")
+			//{
+			//	//string paymentUrl = _vnPayService.CreateVnPayPayment(order);
+			//	return Json(new { success = true, redirectUrl = paymentUrl });
+			//}
 
-			// Cash on Delivery
+			// Cash on Deliveryq
 			return Json(new { success = true, orderId = order.Id });
 		}
 
@@ -250,5 +269,45 @@ namespace BookNest.Areas.Customer.Controllers
 
 			return RedirectToAction("Details", "Order", new { id = order.Id, area = "Customer" });
 		}
+
+		[HttpPost]
+		public IActionResult AddAjax([FromBody] AddToCartDto dto, string? returnUrl)
+		{
+			if (dto == null)
+				return Json(new { success = false, message = "DTO is null" });
+
+			if (dto.ProductId == Guid.Empty)
+				return Json(new { success = false, message = "Invalid product ID" });
+
+			var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+			var product = _productRepo.Get(p => p.Id == dto.ProductId);
+			if (product == null)
+				return Json(new { success = false, message = "Product not found" });
+
+			var cartFromDb = _shoppingCartRepo.Get(
+				u => u.ApplicationUserId == userId && u.ProductId == dto.ProductId
+			);
+
+			if (cartFromDb != null)
+			{
+				cartFromDb.Count += dto.Count;
+				_shoppingCartRepo.Update(cartFromDb);
+			}
+			else
+			{
+				_shoppingCartRepo.Add(new ShoppingCart
+				{
+					ProductId = dto.ProductId,
+					Count = dto.Count,
+					ApplicationUserId = userId
+				});
+			}
+
+			_shoppingCartRepo.Save();
+
+			return Json(new { success = true, redirectUrl = dto.ReturnUrl,message = "Added to cart 🛒" });
+		}
+
 	}
 }

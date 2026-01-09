@@ -16,26 +16,26 @@ namespace BookNest.Models
         [Required]
         [Display(Name = "List Price")]
         [Range(10000, 10000000)]
-        public double ListPrice { get; set; }
+		public double ListPrice { get; set; }
         [Required]
         [Display(Name = "Price for 1-50")]
         [Range(10000, 10000000)]
-        public double Price { get; set; }
+		public double Price { get; set; }
         [Required]
         [Display(Name = "Price for 50+")]
         [Range(10000, 10000000)]
-        public double Price50 { get; set; }
+		public double Price50 { get; set; }
         [Required]
         [Display(Name = "Price for 100+")]
         [Range(10000, 10000000)]
-        public double Price100 { get; set; }
-
-        public Guid? CategoryId { get; set; }
+		public double Price100 { get; set; }
+		[Required(ErrorMessage = "Category is required")]
+		public Guid CategoryId { get; set; }
         [ForeignKey("CategoryId")]
         [ValidateNever]
         public Category Category { get; set; }
         [ValidateNever]
         public string ImageUrl { get; set; }
-
-    }
+		public ICollection<OrderItem> OrderItems { get; set; }
+	}
 }

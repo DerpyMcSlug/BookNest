@@ -69,5 +69,25 @@ namespace BookNest.DataAccess.Repository
         {
             _db.SaveChanges();
         }
-    }
+
+		public T GetFirstOrDefault(
+	        Expression<Func<T, bool>> filter,
+	        string? includeProperties = null)
+		    {
+			        IQueryable<T> query = dbSet;
+
+			        query = query.Where(filter);
+
+			        if (!string.IsNullOrEmpty(includeProperties))
+			        {
+				        foreach (var prop in includeProperties
+					        .Split(',', StringSplitOptions.RemoveEmptyEntries))
+				        {
+					        query = query.Include(prop);
+				        }
+			        }
+
+			        return query.FirstOrDefault();
+		    }
+	}
 }

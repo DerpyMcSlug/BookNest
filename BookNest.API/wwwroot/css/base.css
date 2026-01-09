@@ -36,3 +36,16 @@ GENERAL UTILITY
     border-radius: 12px;
     padding: 20px;
 }
+
+.page-link {
+    color: #1abc9c !important;
+}
+
+.page-item.active .page-link {
+    background-color: #1abc9c !important;
+    border-color: #1abc9c !important;
+}
+
+.page-link:hover {
+    color: #159a80 !important;
+}

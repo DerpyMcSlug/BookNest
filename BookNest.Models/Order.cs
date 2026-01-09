@@ -20,7 +20,7 @@ namespace BookNest.Models
 
         public DateTime OrderDate { get; set; } = DateTime.UtcNow;
 
-        public decimal TotalAmount { get; set; }
+        public double TotalAmount { get; set; }
 
         public string PaymentMethod { get; set; }
         public string Status { get; set; } = "Pending";

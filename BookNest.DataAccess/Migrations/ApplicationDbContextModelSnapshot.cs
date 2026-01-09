@@ -280,11 +280,10 @@ namespace BookNest.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("TotalAmount")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
+					b.Property<double>("TotalAmount")
+                        .HasColumnType("float");
 
-                    b.Property<string>("UserId")
+					b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
@@ -310,11 +309,10 @@ namespace BookNest.DataAccess.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("UnitPrice")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
+					b.Property<double>("UnitPrice")
+	                    .HasColumnType("float");
 
-                    b.HasKey("Id");
+					b.HasKey("Id");
 
                     b.HasIndex("OrderId");
 

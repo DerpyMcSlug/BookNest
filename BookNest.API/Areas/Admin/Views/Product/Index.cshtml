@@ -1,16 +1,14 @@
 ﻿@model List<Product>
 
-<div class="container">
-    <div class="row pt-4 pb-5">
-        <div class="col-6"><h2 class="text-primary">Product List</h2></div>
-        <div class="col-6 text-end">
-            <button class="btn btn-primary" onclick="openAdminModal('/admin/product/upsert')">
-                <i class="bi bi-plus-circle"></i> Create New Product
-            </button>
-        </div>
-    </div>
+<div class="container admin-header">
+    <h2>Product List</h2>
+
+    <button class="btn btn-primary shadow-soft"
+            onclick="openAdminModal('/admin/product/upsert')">
+        <i class="bi bi-plus-circle"></i> Create New Product
+    </button>
 </div>
-<table id="tableData" class="table table-bordered table-striped">
+<table id="tableProduct" class="table table-bordered table-striped">
     <thead>
         <tr>
             <th>Title</th>
@@ -22,9 +20,3 @@
         </tr>
     </thead>
 </table>
-
-<div id="modalContainer"></div>
-
-@section Scripts {
-    <script src="~/js/product.js"></script>
-}

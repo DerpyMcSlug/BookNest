@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Payment Success";
+}
+
+<div class="container text-center mt-5">
+    <h2 class="text-success">🎉 Thanh toán thành công</h2>
+
+    <p>Mã đơn hàng:</p>
+    <h5>@ViewBag.OrderId</h5>
+
+    <a asp-area="Customer"
+       asp-controller="Order"
+       asp-action="Details"
+       asp-route-id="@ViewBag.OrderId"
+       class="btn btn-primary mt-3">
+        View Order Details
+    </a>
+
+    <a href="/Customer/Home/Index"
+       class="btn btn-secondary mt-3 ms-2">
+        Back to Homepage
+    </a>
+</div>

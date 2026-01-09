@@ -1,11 +1,11 @@
-﻿using BookNest.Models;
+﻿//using BookNest.Models;
 
-namespace BookNest.Services
-{
-    public interface IVnPayService
-    {
-        string CreatePaymentUrl(PaymentInformationModel model, HttpContext context);
-        PaymentResponseModel PaymentExecute(IQueryCollection collections);
+//namespace BookNest.Services
+//{
+//    public interface IVnPayService
+//    {
+//        string CreatePaymentUrl(PaymentInformationModel model, HttpContext context);
+//        PaymentResponseModel PaymentExecute(IQueryCollection collections);
 
-    }
-}
+//    }
+//}

@@ -1,27 +1,64 @@
 ﻿/* =========================================================
-BUTTONS
+BUTTON INTERACTIONS — no layout shift + ripple
 ========================================================= */
+
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
 .btn-primary {
-    background-color: #9c661f !important;
-    border-color: #9c661f !important;
-    transition: all 0.25s ease-in-out;
+    background: linear-gradient(135deg, #b8860b, #d4a017) !important;
+    border: none;
+    color: #fffaf0;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    border-radius: 10px;
+    transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.15s ease;
 }
 
     .btn-primary:hover {
-        background-color: #c57b2a !important;
-        border-color: #c57b2a !important;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-        transform: translateY(-2px);
+        background: linear-gradient(135deg, #c9961a, #e0b02d) !important;
+        transform: scale(1.04);
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
     }
+
+    .btn-primary:active {
+        transform: scale(0.97);
+        box-shadow: 0 4px 10px rgba(140, 100, 20, 0.25);
+    }
+
+    .btn-primary:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.45);
+    }
+
+/* Ripple */
+.btn .ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple-animation 600ms linear;
+    background-color: rgba(255, 255, 255, 0.4);
+    pointer-events: none;
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
 
 /* =========================================================
 FORMS (GLOBAL + AUTH)
 ========================================================= */
-form button[type="submit"] {
+.auth-form button[type="submit"],
+.account-form button[type="submit"] {
     display: block;
     margin: 1rem auto 0;
-    padding: 0.6rem 0 !important;
-    width: 60% !important;
+    padding: 0.6rem 0;
+    width: 60%;
 }
 
 .form-floating > .form-control {
@@ -31,61 +68,6 @@ form button[type="submit"] {
 
 .form-floating > label {
     padding-left: 1rem !important;
-}
-
-/* =========================================================
-HERO BANNER
-========================================================= */
-.hero-banner {
-    background-position: center;
-    background-size: cover;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    height: 220px;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-}
-
-    .hero-banner .btn-lg {
-        border-radius: 30px;
-        font-weight: 600;
-        padding: 0.75rem 2rem;
-    }
-
-.hero-content h1 {
-    color: #fffaf0;
-    font-size: 2.6rem;
-    font-weight: 700;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.4);
-}
-
-.hero-content p {
-    color: #f5e8c7;
-    font-size: 1.15rem;
-    margin-top: 0.5rem;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.35);
-}
-
-.hero-overlay {
-    align-items: center;
-    background: rgba(10, 32, 80, 0.55);
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    padding: 2rem;
-    width: 100%;
-}
-
-.hero-subtitle {
-    font-size: 1.1rem;
-    margin-top: 0.5rem;
-    opacity: 0.9;
-}
-
-.hero-title {
-    font-size: 2.2rem;
-    font-weight: 700;
 }
 
 /* =========================================================
@@ -152,8 +134,9 @@ UTILITY CLASSES (reusable styles extracted from duplicates)
 }
 
 /* =========================================================
-GENRE SECTIONS
+GENRE SECTIONS — compact storefront style
 ========================================================= */
+
 .genre-section {
     margin-bottom: 10px;
     padding: 10px 5px;
@@ -162,77 +145,138 @@ GENRE SECTIONS
     border: 1px solid #e0d7c6;
 }
 
+/* Category title */
 .genre-title {
     font-size: 26px;
-    margin-bottom: 18px;
-    margin-top: 20px;
+    margin: 20px 0 18px;
     font-weight: 700;
     color: #3a2d2d;
     border-left: 6px solid #d4a373;
     padding-left: 12px;
 }
 
+/* Wrapper box */
 .category-box {
-    background: white;
-    padding: 20px;
+    background: #ffffff;
+    padding: 18px;
     border-radius: 12px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    margin-bottom: 35px;
+    margin-bottom: 32px;
 }
 
-/* Horizontal strip */
+/* =========================================================
+HORIZONTAL BOOK STRIP
+========================================================= */
+
 .book-scroll-container {
     display: flex;
-    overflow-x: auto;
     gap: 1.2rem;
+    overflow-x: auto;
     padding-bottom: 1rem;
     scroll-behavior: smooth;
 }
 
-    /* Prevent hyper-stretch items */
+    /* Smaller storefront cards */
     .book-scroll-container .product-card {
-        flex: 0 0 260px; /* fixed width */
-        min-width: 260px;
+        flex: 0 0 170px;
+        min-width: 170px;
     }
 
-    /* Scrollbar styling */
+    /* Native-looking scrollbar */
     .book-scroll-container::-webkit-scrollbar {
-        height: 8px;
-    }
-
-    .book-scroll-container::-webkit-scrollbar-thumb {
-        background: #ccc;
-        border-radius: 4px;
+        height: 14px;
     }
 
     .book-scroll-container::-webkit-scrollbar-track {
-        background: #f4f4f4;
-    }
-
-    /* Make scrollbar look like default but horizontal */
-    .book-scroll-container::-webkit-scrollbar {
-        height: 14px; /* same thickness as normal vertical scrollbars */
-    }
-
-    .book-scroll-container::-webkit-scrollbar-track {
-        background: #eaeaea; /* light grey like native scrollbars */
-        border-radius: 0;
+        background: #eaeaea;
     }
 
     .book-scroll-container::-webkit-scrollbar-thumb {
-        background: #c1c1c1; /* matches Windows Chrome default */
+        background: #c1c1c1;
         border-radius: 8px;
-        border: 3px solid #eaeaea; /* makes the “thumb” smaller inside the track */
+        border: 3px solid #eaeaea;
     }
 
         .book-scroll-container::-webkit-scrollbar-thumb:hover {
-            background: #a8a8a8; /* darker on hover, like native scrollbars */
+            background: #a8a8a8;
         }
 
 /* Firefox support */
 .book-scroll-container {
-    scrollbar-width: auto; /* normal-width scrollbar */
+    scrollbar-width: auto;
     scrollbar-color: #c1c1c1 #eaeaea;
+}
+
+/* =========================================================
+COMPACT PRODUCT CARD
+========================================================= */
+
+/* Card size */
+.book-scroll-container .product-card {
+    flex: 0 0 140px;
+    min-width: 140px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+    transition: none; /* remove hover animation */
+}
+
+    .book-scroll-container .product-card .card-body .btn {
+        width: 100%;
+        font-size: 0.65rem;
+        padding: 0.35rem 0;
+        border-radius: 6px;
+        margin-top: 0.4rem;
+    }
+
+/* Remove any hover motion */
+.product-card:hover {
+    transform: none;
+}
+
+/* Image */
+.product-card img,
+.product-card .card-img-top {
+    width: 100%;
+    height: 110px;
+    object-fit: contain;
+    background-color: #f5f3ee;
+    padding: 6px;
+}
+
+/* Body */
+.product-card .card-body {
+    padding: 0.45rem;
+    text-align: center;
+}
+
+/* Title */
+.product-card h5,
+.product-card .card-title {
+    font-size: 0.78rem;
+    line-height: 1.15;
+    margin-bottom: 0.2rem;
+}
+
+/* Meta text */
+.product-card p {
+    font-size: 0.72rem;
+    margin-bottom: 0.25rem;
+}
+
+/* Price */
+.product-card .price,
+.product-card span {
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* Button — compact, not full width */
+.product-card .btn {
+    font-size: 0.68rem;
+    padding: 0.28rem 0.55rem;
+    border-radius: 5px;
+    display: inline-block;
+    width: auto;
+    margin-top: 0.35rem;
 }
 
 
@@ -394,4 +438,122 @@ FORM VALIDATION (ERROR STYLING)
     padding: 0.75rem 1rem;
     border-radius: 8px;
     margin-bottom: 1rem;
+}
+
+/* =========================================================
+HERO SECTION — homepage highlight
+========================================================= */
+
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 320px;
+    border-radius: 18px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    margin: 1.5rem auto 2.5rem;
+}
+
+    /* Overlay for readability */
+    .hero-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient( 120deg, rgba(40, 25, 5, 0.75), rgba(40, 25, 5, 0.45) );
+        z-index: 1;
+    }
+
+/* Content wrapper */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem 3.5rem;
+    max-width: 720px;
+}
+
+/* Title */
+.hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.15;
+    color: #fffaf0;
+    margin-bottom: 0.75rem;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.45);
+}
+
+/* Subtitle */
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: #f5e8c7;
+    margin-bottom: 1.75rem;
+    max-width: 520px;
+}
+
+/* CTA button */
+.hero-section .btn-primary {
+    width: fit-content;
+    padding: 0.75rem 2.2rem;
+    font-size: 1.05rem;
+    border-radius: 999px;
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 360px;
+        border-radius: 14px;
+    }
+
+    .hero-content {
+        padding: 2.2rem;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.05rem;
+    }
+}
+
+.wishlist-btn {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    flex: 0 0 32px; /* 🔒 fixed size, no flex growth */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .wishlist-btn i {
+        font-size: 0.9rem; /* slightly smaller star */
+        line-height: 1;
+    }
+
+    .wishlist-btn.active {
+        background-color: #ffc107;
+        border-color: #ffc107;
+        color: #000;
+        animation: pop 0.25s ease-in-out;
+    }
+
+@keyframes pop {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }

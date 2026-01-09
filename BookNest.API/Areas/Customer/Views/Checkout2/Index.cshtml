@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Checkout";
+}
+
+<h2>Checkout</h2>
+
+<form asp-area="Customer"
+      asp-controller="Checkout"
+      asp-action="PlaceOrder"
+      method="post">
+
+    <button type="submit" class="btn btn-primary">
+        Place Order
+    </button>
+
+</form>

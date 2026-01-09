@@ -1,7 +1,6 @@
 ﻿@model Dictionary<string, List<Product>>
 
-<div class="hero-section mb-4" style="background-image: url('/images/banner-books.jpg');">
-    <div class="hero-overlay">
+<div class="hero-section" style="background-image: url('/images/banner-books.jpg');">
         <div class="hero-content">
             <h1 class="hero-title">Discover Your Next Favorite Book</h1>
             <p class="hero-subtitle">Dive into a world of stories, knowledge, and imagination.</p>
@@ -9,7 +8,6 @@
                 Browse Books
             </a>
         </div>
-    </div>
 </div>
 
 @if (Model.Count == 0)
@@ -23,13 +21,23 @@ else
     foreach (var category in Model)
     {
         <div class="category-box">
-            <h2 class="mb-3 mt-2 text-primary fw-bold">@category.Key</h2>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h3 class="mb-0">@category.Key</h3>
+
+                <a asp-area="Customer"
+                   asp-controller="Home"
+                   asp-action="Index"
+                   asp-route-category="@category.Key"
+                   class="btn btn-sm btn-outline-primary">
+                    View All
+                </a>
+            </div>
 
             <div class="book-scroll-container">
                 @foreach (var product in category.Value)
                 {
-                    <div class="card product-card border-0 p-3 shadow border-top border-5 rounded" style="min-width: 260px;">
-                        <img src="@product.ImageUrl" class="card img-top rounded" />
+                    <div class="card product-card border-0 shadow rounded">
+                        <img src="@product.ImageUrl" class="card-img-top rounded" />
                         <div class="card-body pb-0">
 
                             <p class="card-title h5 text-dark opacity-75 text-uppercase text-center">@product.Title</p>
@@ -42,10 +50,24 @@ else
                             <p class="text-dark text-opacity-75 text-center">
                                 As low as: <span>@product.Price100.ToString("c0")</span>
                             </p>
-                        </div>
 
-                        <a asp-action="Details" asp-route-productId="@product.Id"
-                           class="btn btn-primary bg-gradient border-0 form-control">Details</a>
+                            <div class="d-flex justify-content-center align-items-center gap-2 mb-2">
+                                <!-- ⭐ Wishlist -->
+                                <button class="btn btn-outline-warning wishlist-btn"
+                                        data-product-id="@product.Id"
+                                        title="Add to wishlist">
+                                    <i class="bi bi-star"></i>
+                                </button>
+
+                                <!-- Details -->
+                                <a asp-action="Details"
+                                   asp-route-productId="@product.Id"
+                                   asp-route-returnUrl="@Context.Request.Path@Context.Request.QueryString"
+                                   class="btn btn-primary product-btn flex-grow-1">
+                                    Details
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 }
             </div>
@@ -57,13 +79,22 @@ else
     document.querySelectorAll('.book-scroll-container').forEach(container => {
         container.addEventListener('wheel', function (e) {
 
-            // Allow SHIFT + scroll to remain vertical for accessibility
             if (e.shiftKey) return;
 
-            // Prevent page from scrolling
-            e.preventDefault();
+            const canScrollHorizontally =
+                this.scrollWidth > this.clientWidth;
 
-            // Scroll horizontally instead of vertically
+            if (!canScrollHorizontally) return;
+
+            const atStart = this.scrollLeft === 0;
+            const atEnd =
+                Math.ceil(this.scrollLeft + this.clientWidth) >= this.scrollWidth;
+
+            if ((e.deltaY < 0 && atStart) || (e.deltaY > 0 && atEnd)) {
+                return;
+            }
+
+            e.preventDefault();
             this.scrollLeft += e.deltaY;
         });
     });

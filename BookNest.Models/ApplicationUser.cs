@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace BookNest.Models
 {
@@ -18,6 +19,7 @@ namespace BookNest.Models
 		public DateTime? LastOtpSentAt { get; set; }
 		public string? TwoFactorCode { get; set; }
 		public DateTime? TwoFactorExpiry { get; set; }
+		public DateTime? LastOtpVerifiedAt { get; set; }
 		public Guid? CompanyId { get; set; }
         [ForeignKey("CompanyId")]
         [ValidateNever]

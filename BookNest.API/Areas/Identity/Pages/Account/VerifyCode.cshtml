@@ -13,6 +13,7 @@
     <div asp-validation-summary="All" class="text-danger"></div>
 
     <input type="hidden" asp-for="Input.Email" />
+    <input type="hidden" asp-for="RememberMe" />
 
     <div class="form-group mb-3">
         <label asp-for="Input.Code"></label>
@@ -27,6 +28,7 @@
 
 <form method="post" asp-page-handler="Resend">
     <input type="hidden" asp-for="Input.Email" />
+    <input type="hidden" asp-for="RememberMe" />
 
     <button type="submit" id="resendBtn" class="btn btn-outline-secondary w-100">
         Resend Code

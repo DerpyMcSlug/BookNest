@@ -5,6 +5,27 @@
 <ul class="navbar-nav align-items-center ms-auto">
     @if (SignInManager.IsSignedIn(User))
     {
+        @if (User.IsInRole("Admin"))
+        {
+            @*
+            <li class="nav-item">
+                <a class="nav-link"
+                   asp-area="Admin"
+                   asp-controller="AuditLog"
+                   asp-action="Index">
+                    <i class="bi bi-clipboard-data"></i> Audit Logs
+                </a>
+            </li>*@
+
+            <li class="nav-item">
+                <a class="nav-link" asp-area="Admin"
+                   asp-controller="ContentManagement"
+                   asp-action="Index">
+                    Content Management
+                </a>
+            </li>
+        }
+
         <li class="nav-item dropdown">
             <button id="settingsDropdown"
                     class="btn nav-link dropdown-toggle px-2"
@@ -33,38 +54,14 @@
                     </a>
                 </li>
 
-                <!-- Admin panel section -->
-                @if (User.IsInRole(BookNest.Utility.StaticDetails.ROLE_ADMIN))
-                {
-                    <li class="dropdown-submenu">
-                        <a class="dropdown-item dropdown-toggle" href="#">
-                            <i class="bi bi-tools me-2"></i>Content Management
-                        </a>
-
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item"
-                                   asp-area="Admin" asp-controller="Category" asp-action="Index">
-                                    Category
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item"
-                                   asp-area="Admin" asp-controller="Product" asp-action="Index">
-                                    Product
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item"
-                                   asp-area="Admin" asp-controller="Company" asp-action="Index">
-                                    Company
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li><hr class="dropdown-divider" /></li>
-                }
+                <li>
+                    <a class="dropdown-item"
+                       asp-area="Customer"
+                       asp-controller="Wishlist"
+                       asp-action="Index">
+                        <i class="bi bi-star me-2"></i>Wishlist
+                    </a>
+                </li>
 
                 <!-- Logout -->
                 <li>

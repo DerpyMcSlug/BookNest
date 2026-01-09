@@ -135,7 +135,9 @@ table.table {
     padding: 0.45rem 0.75rem !important;
 }
 
-
+.dataTables_wrapper .row {
+    margin-bottom: 0.75rem;
+}
 /* =========================================================
 UTILITY CLASSES (reusable styles extracted from duplicates)
 ========================================================= */
@@ -200,50 +202,12 @@ UTILITY CLASSES (reusable styles extracted from duplicates)
 }
 
 /* =========================================================
-PRODUCT CARDS
-========================================================= */
-
-.genre-tag {
-    background-color: var(--bs-primary);
-    color: #fffaf0;
-    font-size: 0.8rem;
-    font-weight: 500;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
-}
-
-.genre-tag {
-    composes: tag-position;
-}
-
-.product-card {
-    background-color: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 0.75rem;
-    max-width: 90%;
-}
-
-.product-card {
-    composes: shadow-soft rounded-10;
-}
-
-    .product-card .card-img-top {
-        height: 200px;
-        object-fit: cover;
-    }
-
-/* =========================================================
 PRODUCT DETAILS PAGE
 ========================================================= */
 
 /* Wrapper box */
 .details-wrapper {
     padding: 2rem 2.5rem;
-}
-
-.details-wrapper {
-    composes: box-white rounded-14;
 }
 
 /* Special labels */
@@ -253,10 +217,6 @@ PRODUCT DETAILS PAGE
     display: inline-block;
     padding: 0.35rem 0.9rem;
     font-size: 0.9rem;
-}
-
-.details-category {
-    composes: rounded-20;
 }
 
 /* Count input styling */
@@ -289,18 +249,11 @@ PRODUCT DETAILS PAGE
     font-size: 1.05rem;
 }
 
-.details-header p {
-    composes: text-soft;
-}
-
 /* Main image */
 .details-image {
     max-width: 90%;
 }
 
-.details-image {
-    composes: rounded-10 shadow-medium;
-}
 
 /* =========================================================
 PRICE TABLE
@@ -309,10 +262,6 @@ PRICE TABLE
 .details-price-table {
     overflow: hidden;
     margin-bottom: 1.4rem;
-}
-
-.details-price-table {
-    composes: rounded-12 shadow-light;
 }
 
 .details-price-row {
@@ -369,3 +318,4 @@ PRICE TABLE
     width: 90px !important;
     text-align: center;
 }
+

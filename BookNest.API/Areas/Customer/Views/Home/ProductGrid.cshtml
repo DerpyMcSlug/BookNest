@@ -1,0 +1,101 @@
+﻿@model BookNest.Models.ViewModels.PagedResult<BookNest.Models.Product>
+
+<div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-4 gap-2">
+
+    <!-- 🔙 Back Button -->
+    <a asp-area="Customer"
+       asp-controller="Home"
+       asp-action="Index"
+       class="btn btn-danger">
+        ← Back
+    </a>
+</div>
+
+<div class="container mt-4">
+    <h2 class="mb-4">@ViewBag.Title</h2>
+
+    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-3">
+        @foreach (var product in Model.Items)
+        {
+            <div class="col">
+                <div class="card h-100 shadow-sm product-card-sm">
+                    <img src="@product.ImageUrl"
+                         class="card-img-top product-img-sm"
+                         alt="@product.Title" />
+
+                    <div class="card-body text-center p-2">
+                        <h6 class="text-uppercase small mb-1">@product.Title</h6>
+
+                        <p class="text-warning small mb-1">
+                            by <b>@product.Author</b>
+                        </p>
+
+                        <p class="text-muted small mb-1">
+                            List price: <del>@product.ListPrice.ToString("c0")</del>
+                        </p>
+
+                        <p class="fw-bold small mb-2">
+                            As low as: @product.Price100.ToString("c0")
+                        </p>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-outline-warning wishlist-btn"
+                                    data-product-id="@product.Id"
+                                    title="Add to wishlist">
+                                <i class="bi bi-star"></i>
+                            </button>
+
+                            <a asp-area="Customer"
+                               asp-controller="Home"
+                               asp-action="Details"
+                               asp-route-productId="@product.Id"
+                               asp-route-returnUrl="@Context.Request.Path@Context.Request.QueryString"
+                               class="btn btn-sm btn-primary w-100">
+                                Details
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    @if (Model.TotalPages > 1)
+    {
+        <nav class="mt-4">
+            <ul class="pagination justify-content-center">
+
+                <li class="page-item @(Model.HasPrevious ? "" : "disabled")">
+                    <a class="page-link"
+                       asp-route-page="@(Model.Page - 1)"
+                       asp-route-search="@ViewBag.Search"
+                       asp-route-category="@ViewBag.Category">
+                        Previous
+                    </a>
+                </li>
+
+                @for (int i = 1; i <= Model.TotalPages; i++)
+                {
+                    <li class="page-item @(i == Model.Page ? "active" : "")">
+                        <a class="page-link"
+                           asp-route-page="@i"
+                           asp-route-search="@ViewBag.Search"
+                           asp-route-category="@ViewBag.Category">
+                            @i
+                        </a>
+                    </li>
+                }
+
+                <li class="page-item @(Model.HasNext ? "" : "disabled")">
+                    <a class="page-link"
+                       asp-route-page="@(Model.Page + 1)"
+                       asp-route-search="@ViewBag.Search"
+                       asp-route-category="@ViewBag.Category">
+                        Next
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+    }
+</div>

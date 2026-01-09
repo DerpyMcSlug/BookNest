@@ -228,3 +228,49 @@ LOGOUT BUTTON FIXES
     padding-bottom: 0 !important;
     line-height: 1.5rem !important;
 }
+
+/* =========================================================
+REMOVE BOOTSTRAP GREEN / TEAL ACTIVE STATES (NAV + DROPDOWN)
+========================================================= */
+
+/* Dropdown items (click + keyboard) */
+.dropdown-item:active,
+.dropdown-item:focus {
+    background-color: transparent !important;
+    color: inherit !important;
+}
+
+/* Navbar links (click + keyboard) */
+.nav-link:active,
+.nav-link:focus {
+    background-color: transparent !important;
+    color: inherit !important;
+}
+
+/* Dropdown toggle while OPEN (this is the key one) */
+.nav-link.dropdown-toggle.show {
+    color: #fffaf0 !important;
+}
+
+    /* Optional: keep hover highlight consistent */
+    .navbar-nav .nav-link:hover,
+    .nav-link.dropdown-toggle.show:hover {
+        color: var(--bs-primary-light) !important;
+    }
+
+.product-img-sm {
+    height: 260px; /* Taller card */
+    object-fit: contain; /* ✅ show full image */
+    background-color: #f5f5f5; /* removes harsh white */
+    padding: 8px;
+}
+
+.btn-back {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+}
+
+    .btn-back:hover {
+        background-color: #bb2d3b;
+    }

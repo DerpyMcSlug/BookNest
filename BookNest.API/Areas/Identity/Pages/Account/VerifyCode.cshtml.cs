@@ -27,9 +27,10 @@ namespace BookNest.Areas.Identity.Pages.Account
 
 		[BindProperty]
 		public InputModel Input { get; set; }
-
 		public string ReturnUrl { get; set; }
 		public string Email { get; set; }
+		public bool RememberMe { get; set; }
+
 
 		public class InputModel
 		{
@@ -41,9 +42,10 @@ namespace BookNest.Areas.Identity.Pages.Account
 			public string Code { get; set; }
 		}
 
-		public void OnGet(string email, string returnUrl = null)
+		public void OnGet(string email, bool rememberMe, string returnUrl = null)
 		{
 			Email = email;
+			RememberMe = rememberMe;
 			ReturnUrl = returnUrl;
 			Input = new InputModel { Email = email };
 		}
@@ -56,24 +58,28 @@ namespace BookNest.Areas.Identity.Pages.Account
 			var user = await _userManager.FindByEmailAsync(Input.Email);
 			if (user == null)
 			{
-				ModelState.AddModelError(string.Empty, "Invalid user.");
+				ModelState.AddModelError(string.Empty, "Invalid verification attempt.");
 				return Page();
 			}
 
-			bool valid = await _twoFactorService.ValidateAsync(user, Input.Code);
+			// ✅ VALIDATE OTP
+			var valid = await _twoFactorService.ValidateAsync(user, Input.Code);
 			if (!valid)
 			{
 				ModelState.AddModelError(string.Empty, "Invalid or expired code.");
 				return Page();
 			}
 
-			// OTP valid → sign user in
-			await _signInManager.SignInAsync(user, isPersistent: false);
+			// ✅ OTP PASSED → REMEMBER IT
+			user.LastOtpVerifiedAt = DateTime.UtcNow;
+			await _userManager.UpdateAsync(user);
 
-			if (!string.IsNullOrEmpty(ReturnUrl))
-				return LocalRedirect(ReturnUrl);
+			// ✅ SIGN IN
+			await _signInManager.SignInAsync(user, RememberMe);
 
-			return Redirect("~/");
+			return !string.IsNullOrEmpty(ReturnUrl)
+				? LocalRedirect(ReturnUrl)
+				: Redirect("~/");
 		}
 
 		// -----------------------------

@@ -1,10 +1,12 @@
-﻿using BookNest.Areas.Identity.Pages.Account;
+﻿using System.Diagnostics;
+using System.Security.Claims;
+using BookNest.Areas.Identity.Pages.Account;
 using BookNest.DataAccess.Repository.IRepository;
 using BookNest.Models;
+using BookNest.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
-using System.Security.Claims;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace BookNest.Areas.Customer.Controllers
 {
@@ -22,28 +24,63 @@ namespace BookNest.Areas.Customer.Controllers
             _shoppingCartRepo = shoppingCartRepo;
         }
 
-		public IActionResult Index(string? search, string? category)
+		public IActionResult Index(string? search, string? category, int page = 1)
 		{
-			var allProducts = _productRepo.GetAll(includeProperties: "Category").ToList();
+			const int pageSize = 12; // 6 per row × 2 rows
 
-			// Search filter
+			var products = _productRepo
+				.GetAll(includeProperties: "Category")
+				.AsQueryable();
+
+			// 🔍 SEARCH
 			if (!string.IsNullOrWhiteSpace(search))
 			{
-				allProducts = allProducts.Where(p =>
+				products = products.Where(p =>
 					p.Title.Contains(search, StringComparison.OrdinalIgnoreCase) ||
 					p.Category.Name.Contains(search, StringComparison.OrdinalIgnoreCase)
-				).ToList();
+				);
+
+				ViewBag.Title = $"Search results for \"{search}\"";
 			}
 
-			// Category filter
+			// 📚 CATEGORY
 			if (!string.IsNullOrWhiteSpace(category))
 			{
-				allProducts = allProducts
-					.Where(p => p.Category.Name.Equals(category, StringComparison.OrdinalIgnoreCase))
-					.ToList();
+				products = products.Where(p =>
+					p.Category.Name.Equals(category, StringComparison.OrdinalIgnoreCase)
+				);
+
+				ViewBag.Title = category;
 			}
 
-			var grouped = allProducts
+			// 🔢 PAGINATION
+			var totalItems = products.Count();
+
+			var pagedProducts = products
+				.Skip((page - 1) * pageSize)
+				.Take(pageSize)
+				.ToList();
+
+			var model = new PagedResult<Product>
+			{
+				Items = pagedProducts,
+				Page = page,
+				PageSize = pageSize,
+				TotalItems = totalItems
+			};
+
+			// If filtering/searching → grid view
+			if (!string.IsNullOrWhiteSpace(search) || !string.IsNullOrWhiteSpace(category))
+			{
+				ViewBag.Search = search;
+				ViewBag.Category = category;
+
+				return View("ProductGrid", model);
+			}
+
+			// 🏠 HOME (unchanged)
+			var grouped = products
+				.ToList()
 				.GroupBy(p => p.Category.Name)
 				.OrderBy(g => g.Key)
 				.ToDictionary(g => g.Key, g => g.ToList());
@@ -51,18 +88,24 @@ namespace BookNest.Areas.Customer.Controllers
 			return View(grouped);
 		}
 
-		public IActionResult Details(Guid productId)
-        {
-            ShoppingCart shoppingCart = new ShoppingCart()
-            {
-                Product = _productRepo.Get(u => u.Id == productId, includeProperties: "Category"),
-                Count = 1,
-                ProductId = productId
-            };
-            return View(shoppingCart);
-        }
+		public IActionResult Details(Guid productId, string? returnUrl)
+		{
+			var cart = new ShoppingCart
+			{
+				Product = _productRepo.Get(
+					p => p.Id == productId,
+					includeProperties: "Category"
+				),
+				ProductId = productId,
+				Count = 1
+			};
 
-        [HttpPost]
+			ViewBag.ReturnUrl = returnUrl;
+
+			return View(cart);
+		}
+
+		[HttpPost]
         [Authorize]
         public IActionResult Details(ShoppingCart shoppingCart)
         {

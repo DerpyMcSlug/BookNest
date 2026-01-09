@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Content Management";
+}
+
+@section Scripts {
+    <script src="~/js/admin-modal.js"></script>
+    <script src="~/js/category.js" asp-append-version="true"></script>
+    <script src="~/js/product.js" asp-append-version="true"></script>
+    <script src="~/js/company.js" asp-append-version="true"></script>--
+
+    <script>
+        $('button[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+
+            const target = $(e.target).data('bs-target');
+
+            if (target === '#productTab' && window.initProductTable) {
+                initProductTable();
+            }
+
+            if (target === '#companyTab' && window.initCompanyTable) {
+                initCompanyTable();
+            }
+
+            // Fix DataTable layout after tab becomes visible
+            $.fn.dataTable
+                .tables({ visible: true, api: true })
+                .columns.adjust();
+        });
+    </script>
+}
+
+<div class="container-fluid">
+    <div class="row pt-4 pb-3">
+        <div class="col-12">
+            <h2 class="text-primary mb-4">Content Management</h2>
+        </div>
+    </div>
+
+    <ul class="nav nav-tabs" id="contentTabs" role="tablist">
+        <li class="nav-item">
+            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#categoryTab">
+                Categories
+            </button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#productTab">
+                Products
+            </button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#companyTab">
+                Companies
+            </button>
+        </li>
+    </ul>
+
+    <div class="tab-content pt-4">
+        <div class="tab-pane fade show active" id="categoryTab" role="tabpanel">
+            @await Html.PartialAsync("~/Areas/Admin/Views/Category/Index.cshtml")
+        </div>
+
+        <div class="tab-pane fade" id="productTab" role="tabpanel">
+            @await Html.PartialAsync("~/Areas/Admin/Views/Product/Index.cshtml")
+        </div>
+
+        <div class="tab-pane fade" id="companyTab" role="tabpanel">
+            @await Html.PartialAsync("~/Areas/Admin/Views/Company/Index.cshtml")
+        </div>
+    </div>
+</div>
+
+<div id="modalContainer"></div>
